@@ -3,47 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to pygmsh's documentation!
+pygmsh's Documentation
 ==================================
 
-Contents:
+For installation instructions and other information, please check out the `GitHub <https://github.com/nschloe/pygmsh.git>`_ repository or the README file included with the source.
 
 .. toctree::
    :maxdepth: 2
+   :caption: Table of Contents
 
-   self
-
-:mod:`pygmsh.built_in.geometry`
-===============================
-
-.. automodule:: pygmsh.built_in.geometry
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-
-:mod:`pygmsh.opencascade.geometry`
-===============================
-
-.. automodule:: pygmsh.opencascade.geometry
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-
-:mod:`pygmsh.helpers`
-=====================
-
-.. automodule:: pygmsh.helpers
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   examples
+   geometry
+   indeces
