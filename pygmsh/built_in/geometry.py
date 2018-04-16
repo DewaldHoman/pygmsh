@@ -54,7 +54,7 @@ class Geometry(object):
         return
 
     def get_code(self):
-        '''Returns properly formatted Gmsh code.
+        '''Return properly formatted Gmsh code.
         '''
         return '\n'.join(self._GMSH_CODE)
 
@@ -77,71 +77,105 @@ class Geometry(object):
     # in which case the circle code never gets added to geom.
 
     def add_bspline(self, *args, **kwargs):
+        '''Create a BSpline.
+
+        Parameters:
+        -----------
+        *args :
+
+        **kwargs :
+        '''
         p = Bspline(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_circle_arc(self, *args, **kwargs):
+        '''Create a Circle arc.
+        '''
         p = CircleArc(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_compound_line(self, *args, **kwargs):
+        '''Create a compound line.
+        '''
         e = CompoundLine(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
         return e
 
     def add_compound_surface(self, *args, **kwargs):
+        '''Create a compound surface.
+        '''
         e = CompoundSurface(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
         return e
 
     def add_compound_volume(self, *args, **kwargs):
+        '''Create a compound volume.
+        '''
         e = CompoundVolume(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
         return e
 
     def add_ellipse_arc(self, *args, **kwargs):
+        '''Create an elliptical arc.
+        '''
         p = EllipseArc(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_line(self, *args, **kwargs):
+        '''Create a line.
+        '''
         p = Line(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_line_loop(self, *args, **kwargs):
+        '''Create a line loop.
+        '''
         p = LineLoop(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_plane_surface(self, *args, **kwargs):
+        '''Create a plane surface.
+        '''
         p = PlaneSurface(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_point(self, *args, **kwargs):
+        '''Create a point.
+        '''
         p = Point(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_spline(self, *args, **kwargs):
+        '''Create a spline.
+        '''
         p = Spline(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_surface(self, *args, **kwargs):
+        '''Create a surface.
+        '''
         s = Surface(*args, api_level=self._GMSH_MAJOR, **kwargs)
         self._GMSH_CODE.append(s.code)
         return s
 
     def add_surface_loop(self, *args, **kwargs):
+        '''Create a surface loop.
+        '''
         e = SurfaceLoop(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
         return e
 
     def add_volume(self, *args, **kwargs):
+        '''Create a volume.
+        '''
         e = Volume(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
         return e
@@ -177,18 +211,54 @@ class Geometry(object):
         return
 
     def add_physical_point(self, points, label=None):
+        '''Create physical point.
+
+        Parameters:
+        -----------
+        points : array[N]
+            Points to classify as physical points.
+        label : string
+            Label of physical point.
+        '''
         self._add_physical('Point', points, label=label)
         return
 
     def add_physical_line(self, lines, label=None):
+        '''Create physical line.
+
+        Parameters:
+        -----------
+        lines : array[N]
+            Lines to classify as physical lines.
+        label : string
+            Label of physical line .
+        '''
         self._add_physical('Line', lines, label=label)
         return
 
     def add_physical_surface(self, surfaces, label=None):
+        '''Create physical surface.
+
+        Parameters:
+        -----------
+        surfaces : array[N]
+            Surfaces to classify as physical surfaces.
+        label : string
+            Label of physical surface .
+        '''
         self._add_physical('Surface', surfaces, label=label)
         return
 
     def add_physical_volume(self, volumes, label=None):
+        '''Create physical volume.
+
+        Parameters:
+        -----------
+        volumes : array[N]
+            Volumes to classify as physical volumes.
+        label : string
+            Label of physical volume .
+        '''
         self._add_physical('Volume', volumes, label=label)
         return
 
@@ -202,6 +272,25 @@ class Geometry(object):
             make_surface=True
             ):
         '''Add circle in the :math:`x`-:math:`y`-plane.
+
+        Parameters:
+        -----------
+        x0 :
+
+        radius :
+
+        lcar :
+
+        R :
+
+        compound :
+
+        num_sections :
+
+        holes :
+
+        make_surface :
+
         '''
         if holes is None:
             holes = []
@@ -291,6 +380,21 @@ class Geometry(object):
         translation_axis, around a given rotation_axis, about a given angle. If
         one of the entities is not provided, this method will produce only
         translation or rotation.
+
+        Parameters:
+        -----------
+        input_entity :
+
+        translation_axis :
+
+        rotation_axis :
+
+        point_on_axis :
+
+        angle :
+
+        recombine :
+
         '''
         self._EXTRUDE_ID += 1
 
@@ -397,6 +501,11 @@ class Geometry(object):
             ratio=None,
             thickness=None
             ):
+        '''Create boundary layer.
+
+        Parameters:
+        -----------
+        '''
         # Don't use [] as default argument, cf.
         # <https://stackoverflow.com/a/113198/353337>
         if edges_list is None:
@@ -448,6 +557,8 @@ class Geometry(object):
         return name
 
     def add_background_field(self, fields, aggregation_type='Min'):
+        '''Create background field.
+        '''
         self._FIELD_ID += 1
         name = 'field{}'.format(self._FIELD_ID)
         self._GMSH_CODE.append('{} = newf;'.format(name))
@@ -463,6 +574,13 @@ class Geometry(object):
         return name
 
     def add_comment(self, string):
+        '''Create comment for Gmsh code.
+
+        Parameters:
+        -----------
+        string: string
+            Value to add as comment.
+        '''
         self._GMSH_CODE.append('// ' + string)
         return
 
@@ -481,6 +599,8 @@ class Geometry(object):
             self, xmin, xmax, ymin, ymax, z, lcar,
             holes=None, make_surface=True
             ):
+        '''Create a rectangle.
+        '''
         return self.add_polygon([
             [xmin, ymin, z],
             [xmax, ymin, z],
@@ -493,6 +613,8 @@ class Geometry(object):
             )
 
     def add_polygon(self, X, lcar, holes=None, make_surface=True):
+        '''Create a polygon.
+        '''
         if holes is None:
             holes = []
         else:
@@ -521,7 +643,7 @@ class Geometry(object):
             with_volume=True,
             holes=None
             ):
-        '''Creates an ellipsoid with radii around a given midpoint
+        '''Create an ellipsoid with radii around a given midpoint
         :math:`x_0`.
         '''
         if holes is None:
@@ -604,6 +726,8 @@ class Geometry(object):
             with_volume=True,
             holes=None
             ):
+        '''Create a ball.
+        '''
         return self.add_ellipsoid(
             x0, [radius, radius, radius], lcar,
             with_volume,
@@ -617,6 +741,8 @@ class Geometry(object):
             with_volume=True,
             holes=None
             ):
+        '''Create a box.
+        '''
 
         if holes is None:
             holes = []
@@ -690,6 +816,8 @@ class Geometry(object):
             x0=numpy.array([0.0, 0.0, 0.0]),
             variant='extrude_lines'
             ):
+        '''Create a torus.
+        '''
 
         if variant == 'extrude_lines':
             return self._add_torus_extrude_lines(
@@ -837,6 +965,8 @@ class Geometry(object):
             lcar=0.1,
             variant='rectangle_rotation'
             ):
+        '''Create a pipe.
+        '''
         if variant == 'rectangle_rotation':
             return self._add_pipe_by_rectangle_rotation(
                 outer_radius, inner_radius, length,
@@ -949,7 +1079,7 @@ class Geometry(object):
         return vol
 
     def translate(self, input_entity, vector):
-        """Translates input_entity itself by vector.
+        """Translate input_entity itself by vector.
 
         Changes the input object.
         """
