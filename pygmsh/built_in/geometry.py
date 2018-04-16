@@ -81,9 +81,7 @@ class Geometry(object):
 
         Parameters:
         -----------
-        *args :
-
-        **kwargs :
+        *args, **kwargs : array[LineBase]
         '''
         p = Bspline(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -91,6 +89,10 @@ class Geometry(object):
 
     def add_circle_arc(self, *args, **kwargs):
         '''Create a Circle arc.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[LineBase]
         '''
         p = CircleArc(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -98,6 +100,10 @@ class Geometry(object):
 
     def add_compound_line(self, *args, **kwargs):
         '''Create a compound line.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[LineBase]
         '''
         e = CompoundLine(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -105,6 +111,10 @@ class Geometry(object):
 
     def add_compound_surface(self, *args, **kwargs):
         '''Create a compound surface.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[SurfaceBase]
         '''
         e = CompoundSurface(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -112,6 +122,10 @@ class Geometry(object):
 
     def add_compound_volume(self, *args, **kwargs):
         '''Create a compound volume.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[volume]
         '''
         e = CompoundVolume(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -119,6 +133,10 @@ class Geometry(object):
 
     def add_ellipse_arc(self, *args, **kwargs):
         '''Create an elliptical arc.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[LineBase]
         '''
         p = EllipseArc(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -126,6 +144,10 @@ class Geometry(object):
 
     def add_line(self, *args, **kwargs):
         '''Create a line.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[LineBase]
         '''
         p = Line(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -133,6 +155,10 @@ class Geometry(object):
 
     def add_line_loop(self, *args, **kwargs):
         '''Create a line loop.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[line]
         '''
         p = LineLoop(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -140,6 +166,10 @@ class Geometry(object):
 
     def add_plane_surface(self, *args, **kwargs):
         '''Create a plane surface.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[line_loop, holes=None]
         '''
         p = PlaneSurface(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -147,6 +177,10 @@ class Geometry(object):
 
     def add_point(self, *args, **kwargs):
         '''Create a point.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[x, lcar]
         '''
         p = Point(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -154,6 +188,10 @@ class Geometry(object):
 
     def add_spline(self, *args, **kwargs):
         '''Create a spline.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[LineBase]
         '''
         p = Spline(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -161,6 +199,11 @@ class Geometry(object):
 
     def add_surface(self, *args, **kwargs):
         '''Create a surface.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[line_loop, api_level=2]
+
         '''
         s = Surface(*args, api_level=self._GMSH_MAJOR, **kwargs)
         self._GMSH_CODE.append(s.code)
@@ -168,6 +211,11 @@ class Geometry(object):
 
     def add_surface_loop(self, *args, **kwargs):
         '''Create a surface loop.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[surfaces]
+
         '''
         e = SurfaceLoop(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -175,6 +223,11 @@ class Geometry(object):
 
     def add_volume(self, *args, **kwargs):
         '''Create a volume.
+
+        Parameters:
+        -----------
+        *args, **kwargs : array[VolumeBase]
+        
         '''
         e = Volume(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -215,7 +268,7 @@ class Geometry(object):
 
         Parameters:
         -----------
-        points : array[N]
+        points : array[point]
             Points to classify as physical points.
         label : string
             Label of physical point.
@@ -228,10 +281,10 @@ class Geometry(object):
 
         Parameters:
         -----------
-        lines : array[N]
+        lines : array[line]
             Lines to classify as physical lines.
         label : string
-            Label of physical line .
+            Label of physical line.
         '''
         self._add_physical('Line', lines, label=label)
         return
@@ -241,10 +294,10 @@ class Geometry(object):
 
         Parameters:
         -----------
-        surfaces : array[N]
+        surfaces : array[surface]
             Surfaces to classify as physical surfaces.
         label : string
-            Label of physical surface .
+            Label of physical surface.
         '''
         self._add_physical('Surface', surfaces, label=label)
         return
@@ -254,10 +307,10 @@ class Geometry(object):
 
         Parameters:
         -----------
-        volumes : array[N]
+        volumes : array[volume]
             Volumes to classify as physical volumes.
         label : string
-            Label of physical volume .
+            Label of physical volume.
         '''
         self._add_physical('Volume', volumes, label=label)
         return
@@ -275,22 +328,22 @@ class Geometry(object):
 
         Parameters:
         -----------
-        x0 :
-
-        radius :
-
-        lcar :
-
-        R :
-
-        compound :
-
-        num_sections :
-
-        holes :
-
-        make_surface :
-
+        x0 : number
+            Center point of circle.
+        radius : number
+            Radius of the circle.
+        lcar : number
+            Characteristic length of the circle.
+        R : [number, number, number]
+            Transformation point.
+        compound : boolean
+            Create compound line from circle arcs.
+        num_sections : number
+            Number of circle arc sections.
+        holes : number
+            Number of holes in the circle.
+        make_surface : boolean
+            Whether to make a surface of the circle.
         '''
         if holes is None:
             holes = []
@@ -383,18 +436,18 @@ class Geometry(object):
 
         Parameters:
         -----------
-        input_entity :
-
-        translation_axis :
-
-        rotation_axis :
-
-        point_on_axis :
-
-        angle :
-
-        recombine :
-
+        input_entity : object
+            Entity to perform extrusion on.
+        translation_axis : [number, number, number]
+            Axis of translation.
+        rotation_axis : [number, number, number]
+            Axis of rotation.
+        point_on_axis : [number, number, number]
+            Point on axis of translation and rotation.
+        angle : number
+            Angle of rotation
+        recombine : boolean
+            Whether to recombine the extrusion layers.
         '''
         self._EXTRUDE_ID += 1
 
@@ -586,6 +639,12 @@ class Geometry(object):
 
     def add_raw_code(self, string_or_list):
         '''Add raw Gmsh code.
+
+        Parameters:
+        -----------
+        string_or_list: string or list
+            Value to add code to gmsh output code.
+
         '''
         if _is_string(string_or_list):
             self._GMSH_CODE.append(string_or_list)
