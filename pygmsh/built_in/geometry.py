@@ -342,7 +342,7 @@ class Geometry(object):
             Number of circle arc sections.
         holes : expression
             Holes to add to the circle.
-        make_surface : boolean
+        make_surface : boolean 
             Whether to make a surface of the circle.
         '''
         if holes is None:

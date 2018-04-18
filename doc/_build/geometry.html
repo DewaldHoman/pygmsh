@@ -69,24 +69,81 @@ points, c1, c2, etc. for circles and so on.</p>
 <dt id="pygmsh.built_in.geometry.Geometry.add_background_field">
 <code class="descname">add_background_field</code><span class="sig-paren">(</span><em>fields</em>, <em>aggregation_type='Min'</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_background_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create background field.</p>
+<dl class="docutils">
+<dt>fields <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>General mesh size (non-uniform) background fields.</dd>
+<dt>aggregation_type <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Type of field (e.g. PostView, Min) with own options.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_ball">
 <code class="descname">add_ball</code><span class="sig-paren">(</span><em>x0</em>, <em>radius</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_ball" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a ball.</p>
+<dd><p>Create a ball with midpoint
+<span class="math notranslate">\(x_0\)</span>.</p>
+<dl class="docutils">
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Midpoint coordinates of ball.</dd>
+<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Radius of ball in all three coordinate directions.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Characteristic length of ball.</dd>
+<dt>with_volume <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to construct a volume from the ball.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to ball.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_boundary_layer">
 <code class="descname">add_boundary_layer</code><span class="sig-paren">(</span><em>edges_list=None</em>, <em>faces_list=None</em>, <em>nodes_list=None</em>, <em>anisomax=None</em>, <em>hfar=None</em>, <em>hwall_n=None</em>, <em>ratio=None</em>, <em>thickness=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_boundary_layer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create boundary layer.</p>
+<dd><p>Create boundary layer field with associated options.</p>
+<dl class="docutils">
+<dt>edges_list <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>Indices of curves in the geometric model.</dd>
+<dt>faces_list <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>Indices of surfaces in the geometric model (Experimental feature).</dd>
+<dt>nodes_list <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>Indices of nodes in the geometric model.</dd>
+<dt>anisomax <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Threshold angle for creating a mesh fan in the boundary layer.</dd>
+<dt>hfar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Element size far from the wall.</dd>
+<dt>hwall_n <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Mesh size normal to the wall.</dd>
+<dt>ratio <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Size ratio between two successive layers.</dd>
+<dt>thickness <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Maximal thickness of the boundary layer.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_box">
 <code class="descname">add_box</code><span class="sig-paren">(</span><em>x0</em>, <em>x1</em>, <em>y0</em>, <em>y1</em>, <em>z0</em>, <em>z1</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a box.</p>
+<dl class="docutils">
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>First (either leftmost or rightmost) x-coordinate of box.</dd>
+<dt>x1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Second (either leftmost or rightmost) x-coordinate of box.</dd>
+<dt>y0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>First (either highest or lowest) y-coordinate of box.</dd>
+<dt>y1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Second (either highest or lowest) y-coordinate of box.</dd>
+<dt>Z0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>First (either deepest or shallowest) z-coordinate of box.</dd>
+<dt>Z1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Second (either deepest or shallowest) z-coordinate of box.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Characteristic length of ball.</dd>
+<dt>with_volume <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to construct a volume from the ball.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to ball.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -101,21 +158,21 @@ points, c1, c2, etc. for circles and so on.</p>
 <code class="descname">add_circle</code><span class="sig-paren">(</span><em>x0</em>, <em>radius</em>, <em>lcar</em>, <em>R=None</em>, <em>compound=False</em>, <em>num_sections=3</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_circle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add circle in the <span class="math notranslate">\(x\)</span>-<span class="math notranslate">\(y\)</span>-plane.</p>
 <dl class="docutils">
-<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
-<dd>Center point of circle.</dd>
-<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Midpoint coordinates of circle.</dd>
+<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd>Radius of the circle.</dd>
-<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd>Characteristic length of the circle.</dd>
-<dt>R <span class="classifier-delimiter">:</span> <span class="classifier">[number, number, number]</span></dt>
-<dd>Transformation point.</dd>
+<dt>R <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Transformation point coordinates.</dd>
 <dt>compound <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
 <dd>Create compound line from circle arcs.</dd>
 <dt>num_sections <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
 <dd>Number of circle arc sections.</dd>
-<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
-<dd>Number of holes in the circle.</dd>
-<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to the circle.</dd>
+<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean </span></dt>
 <dd>Whether to make a surface of the circle.</dd>
 </dl>
 </dd></dl>
@@ -169,7 +226,19 @@ points, c1, c2, etc. for circles and so on.</p>
 <dt id="pygmsh.built_in.geometry.Geometry.add_ellipsoid">
 <code class="descname">add_ellipsoid</code><span class="sig-paren">(</span><em>x0</em>, <em>radii</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an ellipsoid with radii around a given midpoint
-<span class="math notranslate">\(x_0\)</span>.</p>
+<span class="math notranslate">\(x_0\)</span> (not available in regular Gmsh).</p>
+<dl class="docutils">
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Midpoint coordinates of ellipsoid.</dd>
+<dt>radii <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Radius of ellipsoid in three coordinate directions.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Characteristic length of ellipsoid.</dd>
+<dt>with_volume <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to construct a volume from the ellipsoid.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to ellipsoid.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -258,6 +327,16 @@ points, c1, c2, etc. for circles and so on.</p>
 <dt id="pygmsh.built_in.geometry.Geometry.add_polygon">
 <code class="descname">add_polygon</code><span class="sig-paren">(</span><em>X</em>, <em>lcar</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_polygon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a polygon.</p>
+<dl class="docutils">
+<dt>X <span class="classifier-delimiter">:</span> <span class="classifier">array[float, float, float]</span></dt>
+<dd>Set of point coordinates for polygon.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Characteristic length of polygon.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to polygon.</dd>
+<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to construct a surface on the polygonial plane.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -266,14 +345,32 @@ points, c1, c2, etc. for circles and so on.</p>
 <dd><p>Add raw Gmsh code.</p>
 <dl class="docutils">
 <dt>string_or_list: string or list</dt>
-<dd>Value to add code to gmsh output code.</dd>
+<dd>Value to add code to Gmsh output code.</dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_rectangle">
 <code class="descname">add_rectangle</code><span class="sig-paren">(</span><em>xmin</em>, <em>xmax</em>, <em>ymin</em>, <em>ymax</em>, <em>z</em>, <em>lcar</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_rectangle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a rectangle.</p>
+<dd><p>Create a rectangle using built-in geometry (not available in regular Gmsh).</p>
+<dl class="docutils">
+<dt>xmin <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Leftmost x-coordinate.</dd>
+<dt>xmax <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Rightmost x-coordinate.</dd>
+<dt>ymin <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Lowest y-coordinate.</dd>
+<dt>ymax <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Highest y-coordinate.</dd>
+<dt>z <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>z-plane coordinate.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Characteristic length of rectangle.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to rectangle.</dd>
+<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to construct a surface on the rectangular plane.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -320,14 +417,14 @@ translation or rotation.</p>
 <dl class="docutils">
 <dt>input_entity <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
 <dd>Entity to perform extrusion on.</dd>
-<dt>translation_axis <span class="classifier-delimiter">:</span> <span class="classifier">[number, number, number]</span></dt>
-<dd>Axis of translation.</dd>
-<dt>rotation_axis <span class="classifier-delimiter">:</span> <span class="classifier">[number, number, number]</span></dt>
-<dd>Axis of rotation.</dd>
-<dt>point_on_axis <span class="classifier-delimiter">:</span> <span class="classifier">[number, number, number]</span></dt>
-<dd>Point on axis of translation and rotation.</dd>
-<dt>angle <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
-<dd>Angle of rotation</dd>
+<dt>translation_axis <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Axis of translation coordinates.</dd>
+<dt>rotation_axis <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Axis of rotation coordinates.</dd>
+<dt>point_on_axis <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Coordinates of point on axis of translation and rotation.</dd>
+<dt>angle <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Angle of rotation.</dd>
 <dt>recombine <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
 <dd>Whether to recombine the extrusion layers.</dd>
 </dl>
@@ -358,13 +455,46 @@ translation or rotation.</p>
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_ball">
 <code class="descname">add_ball</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_ball" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a ball.</p>
+<dd><p>Create a ball with midpoint
+<span class="math notranslate">\(x_0\)</span>.</p>
+<dl class="docutils">
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
+<dd>Midpoint coordinates of ball.</dd>
+<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Radius of ball in all three coordinate directions.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Characteristic length of ball.</dd>
+<dt>with_volume <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to construct a volume from the ball.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to ball.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_box">
 <code class="descname">add_box</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a box.</p>
+<dl class="docutils">
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>First (either leftmost or rightmost) x-coordinate of box.</dd>
+<dt>x1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Second (either leftmost or rightmost) x-coordinate of box.</dd>
+<dt>y0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>First (either highest or lowest) y-coordinate of box.</dd>
+<dt>y1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Second (either highest or lowest) y-coordinate of box.</dd>
+<dt>Z0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>First (either deepest or shallowest) z-coordinate of box.</dd>
+<dt>Z1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Second (either deepest or shallowest) z-coordinate of box.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Characteristic length of ball.</dd>
+<dt>with_volume <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to construct a volume from the ball.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to ball.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -385,7 +515,25 @@ translation or rotation.</p>
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_rectangle">
 <code class="descname">add_rectangle</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_rectangle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a rectangle.</p>
+<dd><p>Create a rectangle using built-in geometry (not available in regular Gmsh).</p>
+<dl class="docutils">
+<dt>xmin <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Leftmost x-coordinate.</dd>
+<dt>xmax <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Rightmost x-coordinate.</dd>
+<dt>ymin <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Lowest y-coordinate.</dd>
+<dt>ymax <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Highest y-coordinate.</dd>
+<dt>z <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>z-plane coordinate.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Characteristic length of rectangle.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
+<dd>Holes to add to rectangle.</dd>
+<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to construct a surface on the rectangular plane.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
