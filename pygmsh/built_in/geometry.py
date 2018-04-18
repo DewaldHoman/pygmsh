@@ -227,7 +227,7 @@ class Geometry(object):
         Parameters:
         -----------
         *args, **kwargs : array[VolumeBase]
-        
+
         '''
         e = Volume(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -328,20 +328,20 @@ class Geometry(object):
 
         Parameters:
         -----------
-        x0 : number
-            Center point of circle.
-        radius : number
+        x0 : [float, float, float]
+            Midpoint coordinates of circle.
+        radius : float
             Radius of the circle.
-        lcar : number
+        lcar : float
             Characteristic length of the circle.
-        R : [number, number, number]
-            Transformation point.
+        R : [float, float, float]
+            Transformation point coordinates.
         compound : boolean
             Create compound line from circle arcs.
         num_sections : number
             Number of circle arc sections.
-        holes : number
-            Number of holes in the circle.
+        holes : expression
+            Holes to add to the circle.
         make_surface : boolean
             Whether to make a surface of the circle.
         '''
@@ -438,14 +438,14 @@ class Geometry(object):
         -----------
         input_entity : object
             Entity to perform extrusion on.
-        translation_axis : [number, number, number]
-            Axis of translation.
-        rotation_axis : [number, number, number]
-            Axis of rotation.
-        point_on_axis : [number, number, number]
-            Point on axis of translation and rotation.
-        angle : number
-            Angle of rotation
+        translation_axis : [float, float, float]
+            Axis of translation coordinates.
+        rotation_axis : [float, float, float]
+            Axis of rotation coordinates.
+        point_on_axis : [float, float, float]
+            Coordinates of point on axis of translation and rotation.
+        angle : float
+            Angle of rotation.
         recombine : boolean
             Whether to recombine the extrusion layers.
         '''
@@ -554,10 +554,26 @@ class Geometry(object):
             ratio=None,
             thickness=None
             ):
-        '''Create boundary layer.
+        '''Create boundary layer field with associated options.
 
         Parameters:
         -----------
+        edges_list : list
+            Indices of curves in the geometric model.
+        faces_list : list
+            Indices of surfaces in the geometric model (Experimental feature).
+        nodes_list : list
+            Indices of nodes in the geometric model.
+        anisomax : float
+            Threshold angle for creating a mesh fan in the boundary layer.
+        hfar : float
+            Element size far from the wall.
+        hwall_n : float
+            Mesh size normal to the wall.
+        ratio : float
+            Size ratio between two successive layers.
+        thickness : float
+            Maximal thickness of the boundary layer.
         '''
         # Don't use [] as default argument, cf.
         # <https://stackoverflow.com/a/113198/353337>
@@ -611,6 +627,13 @@ class Geometry(object):
 
     def add_background_field(self, fields, aggregation_type='Min'):
         '''Create background field.
+
+        Parameters:
+        -----------
+        fields : expression
+            General mesh size (non-uniform) background fields.
+        aggregation_type : expression
+            Type of field (e.g. PostView, Min) with own options.
         '''
         self._FIELD_ID += 1
         name = 'field{}'.format(self._FIELD_ID)
@@ -643,7 +666,7 @@ class Geometry(object):
         Parameters:
         -----------
         string_or_list: string or list
-            Value to add code to gmsh output code.
+            Value to add code to Gmsh output code.
 
         '''
         if _is_string(string_or_list):
@@ -658,7 +681,26 @@ class Geometry(object):
             self, xmin, xmax, ymin, ymax, z, lcar,
             holes=None, make_surface=True
             ):
-        '''Create a rectangle.
+        '''Create a rectangle using built-in geometry (not available in regular Gmsh).
+
+        Parameters:
+        -----------
+        xmin : float
+            Leftmost x-coordinate.
+        xmax : float
+            Rightmost x-coordinate.
+        ymin : float
+            Lowest y-coordinate.
+        ymax : float
+            Highest y-coordinate.
+        z : float
+            z-plane coordinate.
+        lcar : float
+            Characteristic length of rectangle.
+        holes : expression
+            Holes to add to rectangle.
+        make_surface : boolean
+            Whether to construct a surface on the rectangular plane.
         '''
         return self.add_polygon([
             [xmin, ymin, z],
@@ -673,6 +715,17 @@ class Geometry(object):
 
     def add_polygon(self, X, lcar, holes=None, make_surface=True):
         '''Create a polygon.
+
+        Parameters:
+        -----------
+        X : array[float, float, float]
+            Set of point coordinates for polygon.
+        lcar : float
+            Characteristic length of polygon.
+        holes : expression
+            Holes to add to polygon.
+        make_surface : boolean
+            Whether to construct a surface on the polygonial plane.
         '''
         if holes is None:
             holes = []
@@ -703,7 +756,20 @@ class Geometry(object):
             holes=None
             ):
         '''Create an ellipsoid with radii around a given midpoint
-        :math:`x_0`.
+        :math:`x_0` (not available in regular Gmsh).
+
+        Parameters
+        ----------
+        x0 : [float, float, float]
+            Midpoint coordinates of ellipsoid.
+        radii : [float, float, float]
+            Radius of ellipsoid in three coordinate directions.
+        lcar : float
+            Characteristic length of ellipsoid.
+        with_volume : boolean
+            Whether to construct a volume from the ellipsoid.
+        holes : expression
+            Holes to add to ellipsoid.
         '''
         if holes is None:
             holes = []
@@ -785,7 +851,21 @@ class Geometry(object):
             with_volume=True,
             holes=None
             ):
-        '''Create a ball.
+        '''Create a ball with midpoint
+        :math:`x_0`.
+
+        Parameters
+        ----------
+        x0 : [float, float, float]
+            Midpoint coordinates of ball.
+        radius : float
+            Radius of ball in all three coordinate directions.
+        lcar : float
+            Characteristic length of ball.
+        with_volume : boolean
+            Whether to construct a volume from the ball.
+        holes : expression
+            Holes to add to ball.
         '''
         return self.add_ellipsoid(
             x0, [radius, radius, radius], lcar,
@@ -801,6 +881,27 @@ class Geometry(object):
             holes=None
             ):
         '''Create a box.
+
+        Parameters
+        ----------
+        x0 : float
+            First (either leftmost or rightmost) x-coordinate of box.
+        x1 : float
+            Second (either leftmost or rightmost) x-coordinate of box.
+        y0 : float
+            First (either highest or lowest) y-coordinate of box.
+        y1 : float
+            Second (either highest or lowest) y-coordinate of box.
+        Z0 : float
+            First (either deepest or shallowest) z-coordinate of box.
+        Z1 : float
+            Second (either deepest or shallowest) z-coordinate of box.
+        lcar : float
+            Characteristic length of ball.
+        with_volume : boolean
+            Whether to construct a volume from the ball.
+        holes : expression
+            Holes to add to ball.
         '''
 
         if holes is None:
