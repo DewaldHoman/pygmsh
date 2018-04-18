@@ -1,0 +1,565 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Geometry Construction &#8212; pygmsh 4.1.4 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Indices and tables" href="indeces.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="indeces.html" title="Indices and tables"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="examples.html" title="Examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pygmsh 4.1.4 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="geometry-construction">
+<h1>Geometry Construction<a class="headerlink" href="#geometry-construction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pygmsh.built_in.geometry">
+<span id="built-in-geometry"></span><h3>Built-in Geometry<a class="headerlink" href="#module-pygmsh.built_in.geometry" title="Permalink to this headline">¶</a></h3>
+<p>This class provides a Python interface for the Gmsh scripting language. It aims
+at working around some of Gmsh’s inconveniences (e.g., having to manually
+assign an ID for every entity created) and providing access to Python’s
+features.</p>
+<p>In Gmsh, the user must manually provide a unique ID for every point, curve,
+volume created. This can get messy when a lot of entities are created and it
+isn’t clear which IDs are already in use. Some Gmsh commands even create new
+entities and silently reserve IDs in that way. This module tries to work around
+this by providing routines in the style of add_point(x) which _return_ the ID.
+To make variable names in Gmsh unique, keep track of how many points, circles,
+etc. have already been created. Variable names will then be p1, p2, etc. for
+points, c1, c2, etc. for circles and so on.</p>
+<dl class="class">
+<dt id="pygmsh.built_in.geometry.Geometry">
+<em class="property">class </em><code class="descclassname">pygmsh.built_in.geometry.</code><code class="descname">Geometry</code><span class="sig-paren">(</span><em>gmsh_major_version=3</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_background_field">
+<code class="descname">add_background_field</code><span class="sig-paren">(</span><em>fields</em>, <em>aggregation_type='Min'</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_background_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create background field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_ball">
+<code class="descname">add_ball</code><span class="sig-paren">(</span><em>x0</em>, <em>radius</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_ball" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a ball.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_boundary_layer">
+<code class="descname">add_boundary_layer</code><span class="sig-paren">(</span><em>edges_list=None</em>, <em>faces_list=None</em>, <em>nodes_list=None</em>, <em>anisomax=None</em>, <em>hfar=None</em>, <em>hwall_n=None</em>, <em>ratio=None</em>, <em>thickness=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_boundary_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create boundary layer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_box">
+<code class="descname">add_box</code><span class="sig-paren">(</span><em>x0</em>, <em>x1</em>, <em>y0</em>, <em>y1</em>, <em>z0</em>, <em>z1</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a box.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_bspline">
+<code class="descname">add_bspline</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_bspline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a BSpline.</p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs : array[LineBase]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_circle">
+<code class="descname">add_circle</code><span class="sig-paren">(</span><em>x0</em>, <em>radius</em>, <em>lcar</em>, <em>R=None</em>, <em>compound=False</em>, <em>num_sections=3</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add circle in the <span class="math notranslate">\(x\)</span>-<span class="math notranslate">\(y\)</span>-plane.</p>
+<dl class="docutils">
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>Center point of circle.</dd>
+<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>Radius of the circle.</dd>
+<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>Characteristic length of the circle.</dd>
+<dt>R <span class="classifier-delimiter">:</span> <span class="classifier">[number, number, number]</span></dt>
+<dd>Transformation point.</dd>
+<dt>compound <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Create compound line from circle arcs.</dd>
+<dt>num_sections <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>Number of circle arc sections.</dd>
+<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>Number of holes in the circle.</dd>
+<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to make a surface of the circle.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_circle_arc">
+<code class="descname">add_circle_arc</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_circle_arc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Circle arc.</p>
+<p><a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs : array[LineBase]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_comment">
+<code class="descname">add_comment</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create comment for Gmsh code.</p>
+<dl class="docutils">
+<dt>string: string</dt>
+<dd>Value to add as comment.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_compound_line">
+<code class="descname">add_compound_line</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_compound_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a compound line.</p>
+<p><a href="#id9"><span class="problematic" id="id10">*</span></a>args, <a href="#id11"><span class="problematic" id="id12">**</span></a>kwargs : array[LineBase]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_compound_surface">
+<code class="descname">add_compound_surface</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_compound_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a compound surface.</p>
+<p><a href="#id13"><span class="problematic" id="id14">*</span></a>args, <a href="#id15"><span class="problematic" id="id16">**</span></a>kwargs : array[SurfaceBase]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_compound_volume">
+<code class="descname">add_compound_volume</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_compound_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a compound volume.</p>
+<p><a href="#id17"><span class="problematic" id="id18">*</span></a>args, <a href="#id19"><span class="problematic" id="id20">**</span></a>kwargs : array[volume]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_ellipse_arc">
+<code class="descname">add_ellipse_arc</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_ellipse_arc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an elliptical arc.</p>
+<p><a href="#id21"><span class="problematic" id="id22">*</span></a>args, <a href="#id23"><span class="problematic" id="id24">**</span></a>kwargs : array[LineBase]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_ellipsoid">
+<code class="descname">add_ellipsoid</code><span class="sig-paren">(</span><em>x0</em>, <em>radii</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_ellipsoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an ellipsoid with radii around a given midpoint
+<span class="math notranslate">\(x_0\)</span>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_line">
+<code class="descname">add_line</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a line.</p>
+<p><a href="#id25"><span class="problematic" id="id26">*</span></a>args, <a href="#id27"><span class="problematic" id="id28">**</span></a>kwargs : array[LineBase]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_line_loop">
+<code class="descname">add_line_loop</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_line_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a line loop.</p>
+<p><a href="#id29"><span class="problematic" id="id30">*</span></a>args, <a href="#id31"><span class="problematic" id="id32">**</span></a>kwargs : array[line]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_physical_line">
+<code class="descname">add_physical_line</code><span class="sig-paren">(</span><em>lines</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_physical_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create physical line.</p>
+<dl class="docutils">
+<dt>lines <span class="classifier-delimiter">:</span> <span class="classifier">array[line]</span></dt>
+<dd>Lines to classify as physical lines.</dd>
+<dt>label <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>Label of physical line.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_physical_point">
+<code class="descname">add_physical_point</code><span class="sig-paren">(</span><em>points</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_physical_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create physical point.</p>
+<dl class="docutils">
+<dt>points <span class="classifier-delimiter">:</span> <span class="classifier">array[point]</span></dt>
+<dd>Points to classify as physical points.</dd>
+<dt>label <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>Label of physical point.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_physical_surface">
+<code class="descname">add_physical_surface</code><span class="sig-paren">(</span><em>surfaces</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_physical_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create physical surface.</p>
+<dl class="docutils">
+<dt>surfaces <span class="classifier-delimiter">:</span> <span class="classifier">array[surface]</span></dt>
+<dd>Surfaces to classify as physical surfaces.</dd>
+<dt>label <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>Label of physical surface.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_physical_volume">
+<code class="descname">add_physical_volume</code><span class="sig-paren">(</span><em>volumes</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_physical_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create physical volume.</p>
+<dl class="docutils">
+<dt>volumes <span class="classifier-delimiter">:</span> <span class="classifier">array[volume]</span></dt>
+<dd>Volumes to classify as physical volumes.</dd>
+<dt>label <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>Label of physical volume.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_pipe">
+<code class="descname">add_pipe</code><span class="sig-paren">(</span><em>outer_radius, inner_radius, length, R=array([[1., 0., 0.],        [0., 1., 0.],        [0., 0., 1.]]), x0=array([0., 0., 0.]), lcar=0.1, variant='rectangle_rotation'</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_pipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a pipe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_plane_surface">
+<code class="descname">add_plane_surface</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_plane_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a plane surface.</p>
+<p><a href="#id33"><span class="problematic" id="id34">*</span></a>args, <a href="#id35"><span class="problematic" id="id36">**</span></a>kwargs : array[line_loop, holes=None]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_point">
+<code class="descname">add_point</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a point.</p>
+<p><a href="#id37"><span class="problematic" id="id38">*</span></a>args, <a href="#id39"><span class="problematic" id="id40">**</span></a>kwargs : array[x, lcar]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_polygon">
+<code class="descname">add_polygon</code><span class="sig-paren">(</span><em>X</em>, <em>lcar</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a polygon.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_raw_code">
+<code class="descname">add_raw_code</code><span class="sig-paren">(</span><em>string_or_list</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_raw_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add raw Gmsh code.</p>
+<dl class="docutils">
+<dt>string_or_list: string or list</dt>
+<dd>Value to add code to gmsh output code.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_rectangle">
+<code class="descname">add_rectangle</code><span class="sig-paren">(</span><em>xmin</em>, <em>xmax</em>, <em>ymin</em>, <em>ymax</em>, <em>z</em>, <em>lcar</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a rectangle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_spline">
+<code class="descname">add_spline</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_spline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a spline.</p>
+<p><a href="#id41"><span class="problematic" id="id42">*</span></a>args, <a href="#id43"><span class="problematic" id="id44">**</span></a>kwargs : array[LineBase]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_surface">
+<code class="descname">add_surface</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a surface.</p>
+<p><a href="#id45"><span class="problematic" id="id46">*</span></a>args, <a href="#id47"><span class="problematic" id="id48">**</span></a>kwargs : array[line_loop, api_level=2]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_surface_loop">
+<code class="descname">add_surface_loop</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_surface_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a surface loop.</p>
+<p><a href="#id49"><span class="problematic" id="id50">*</span></a>args, <a href="#id51"><span class="problematic" id="id52">**</span></a>kwargs : array[surfaces]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_torus">
+<code class="descname">add_torus</code><span class="sig-paren">(</span><em>irad, orad, lcar, R=array([[1., 0., 0.],        [0., 1., 0.],        [0., 0., 1.]]), x0=array([0., 0., 0.]), variant='extrude_lines'</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_torus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a torus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.add_volume">
+<code class="descname">add_volume</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a volume.</p>
+<p><a href="#id53"><span class="problematic" id="id54">*</span></a>args, <a href="#id55"><span class="problematic" id="id56">**</span></a>kwargs : array[VolumeBase]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.extrude">
+<code class="descname">extrude</code><span class="sig-paren">(</span><em>input_entity</em>, <em>translation_axis=None</em>, <em>rotation_axis=None</em>, <em>point_on_axis=None</em>, <em>angle=None</em>, <em>num_layers=None</em>, <em>recombine=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.extrude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extrusion (translation + rotation) of any entity along a given
+translation_axis, around a given rotation_axis, about a given angle. If
+one of the entities is not provided, this method will produce only
+translation or rotation.</p>
+<dl class="docutils">
+<dt>input_entity <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd>Entity to perform extrusion on.</dd>
+<dt>translation_axis <span class="classifier-delimiter">:</span> <span class="classifier">[number, number, number]</span></dt>
+<dd>Axis of translation.</dd>
+<dt>rotation_axis <span class="classifier-delimiter">:</span> <span class="classifier">[number, number, number]</span></dt>
+<dd>Axis of rotation.</dd>
+<dt>point_on_axis <span class="classifier-delimiter">:</span> <span class="classifier">[number, number, number]</span></dt>
+<dd>Point on axis of translation and rotation.</dd>
+<dt>angle <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>Angle of rotation</dd>
+<dt>recombine <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd>Whether to recombine the extrusion layers.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.get_code">
+<code class="descname">get_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.get_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return properly formatted Gmsh code.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.built_in.geometry.Geometry.translate">
+<code class="descname">translate</code><span class="sig-paren">(</span><em>input_entity</em>, <em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate input_entity itself by vector.</p>
+<p>Changes the input object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pygmsh.opencascade.geometry">
+<span id="opencascade-geometry"></span><h3>OpenCASCADE Geometry<a class="headerlink" href="#module-pygmsh.opencascade.geometry" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pygmsh.opencascade.geometry.Geometry">
+<em class="property">class </em><code class="descclassname">pygmsh.opencascade.geometry.</code><code class="descname">Geometry</code><span class="sig-paren">(</span><em>characteristic_length_min=None</em>, <em>characteristic_length_max=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygmsh.built_in.geometry.Geometry" title="pygmsh.built_in.geometry.Geometry"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygmsh.built_in.geometry.Geometry</span></code></a></p>
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.add_ball">
+<code class="descname">add_ball</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_ball" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a ball.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.add_box">
+<code class="descname">add_box</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a box.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.add_cone">
+<code class="descname">add_cone</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_cone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.add_cylinder">
+<code class="descname">add_cylinder</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_cylinder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.add_disk">
+<code class="descname">add_disk</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_disk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.add_rectangle">
+<code class="descname">add_rectangle</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a rectangle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.add_torus">
+<code class="descname">add_torus</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_torus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a torus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.add_wedge">
+<code class="descname">add_wedge</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_wedge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.boolean_difference">
+<code class="descname">boolean_difference</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.boolean_difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean difference, see
+<a class="reference external" href="https://gmsh.info/doc/texinfo/gmsh.html#Boolean-operations">https://gmsh.info/doc/texinfo/gmsh.html#Boolean-operations</a> input_entity
+and tool_entity are called object and tool in gmsh documentation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.boolean_fragments">
+<code class="descname">boolean_fragments</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.boolean_fragments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean fragments, see
+<a class="reference external" href="https://gmsh.info/doc/texinfo/gmsh.html#Boolean-operations">https://gmsh.info/doc/texinfo/gmsh.html#Boolean-operations</a> input_entity
+and tool_entity are called object and tool in gmsh documentation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.boolean_intersection">
+<code class="descname">boolean_intersection</code><span class="sig-paren">(</span><em>entities</em>, <em>delete_first=True</em>, <em>delete_other=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.boolean_intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean intersection, see
+<a class="reference external" href="https://gmsh.info/doc/texinfo/gmsh.html#Boolean-operations">https://gmsh.info/doc/texinfo/gmsh.html#Boolean-operations</a> input_entity
+and tool_entity are called object and tool in gmsh documentation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.boolean_union">
+<code class="descname">boolean_union</code><span class="sig-paren">(</span><em>entities</em>, <em>delete_first=True</em>, <em>delete_other=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.boolean_union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean union, see
+<a class="reference external" href="https://gmsh.info/doc/texinfo/gmsh.html#Boolean-operations">https://gmsh.info/doc/texinfo/gmsh.html#Boolean-operations</a> input_entity
+and tool_entity are called object and tool in gmsh documentation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.extrude">
+<code class="descname">extrude</code><span class="sig-paren">(</span><em>input_entity</em>, <em>translation_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.extrude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extrusion (translation + rotation) of any entity along a given
+translation_axis, around a given rotation_axis, about a given angle. If
+one of the entities is not provided, this method will produce only
+translation or rotation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygmsh.opencascade.geometry.Geometry.get_code">
+<code class="descname">get_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.get_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns properly formatted Gmsh code.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pygmsh.helpers">
+<span id="pygmsh-helpers"></span><h3>pygmsh Helpers<a class="headerlink" href="#module-pygmsh.helpers" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pygmsh.helpers.generate_mesh">
+<code class="descclassname">pygmsh.helpers.</code><code class="descname">generate_mesh</code><span class="sig-paren">(</span><em>geo_object</em>, <em>optimize=True</em>, <em>num_lloyd_steps=1000</em>, <em>verbose=True</em>, <em>dim=3</em>, <em>prune_vertices=True</em>, <em>gmsh_path=None</em>, <em>geom_order=1</em>, <em>geo_filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.helpers.generate_mesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pygmsh.helpers.get_gmsh_major_version">
+<code class="descclassname">pygmsh.helpers.</code><code class="descname">get_gmsh_major_version</code><span class="sig-paren">(</span><em>gmsh_exe='gmsh'</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.helpers.get_gmsh_major_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pygmsh.helpers.rotation_matrix">
+<code class="descclassname">pygmsh.helpers.</code><code class="descname">rotation_matrix</code><span class="sig-paren">(</span><em>u</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.helpers.rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return matrix that implements the rotation around the vector <span class="math notranslate">\(u\)</span>
+by the angle <span class="math notranslate">\(\theta\)</span>, cf.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle">https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u</strong> – rotation vector</li>
+<li><strong>theta</strong> – rotation angle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Geometry Construction</a><ul>
+<li><a class="reference internal" href="#modules">Modules</a><ul>
+<li><a class="reference internal" href="#module-pygmsh.built_in.geometry">Built-in Geometry</a></li>
+<li><a class="reference internal" href="#module-pygmsh.opencascade.geometry">OpenCASCADE Geometry</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+<li><a class="reference internal" href="#module-pygmsh.helpers">pygmsh Helpers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="previous chapter">Examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="indeces.html"
+                        title="next chapter">Indices and tables</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/geometry.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="indeces.html" title="Indices and tables"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="examples.html" title="Examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pygmsh 4.1.4 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015-2017, Nico Schlömer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>
