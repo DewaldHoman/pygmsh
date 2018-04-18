@@ -38,10 +38,10 @@ setup(
         'numpy >= 1.9',
         'voropy',
         ],
-    extras_require={
-        'all': ['pipdate'],
-        'update': ['pipdate'],
-        },
+    # extras_require={
+    #     'all': ['pipdate'],
+    #     'update': ['pipdate'],
+    #     },
     classifiers=[
         about['__status__'],
         about['__license__'],
