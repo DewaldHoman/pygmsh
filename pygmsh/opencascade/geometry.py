@@ -46,46 +46,94 @@ class Geometry(bl.Geometry):
         return
 
     def get_code(self):
-        '''Returns properly formatted Gmsh code.
+        '''Return properly formatted Gmsh code.
         '''
         return '\n'.join(self._GMSH_CODE)
 
     def add_rectangle(self, *args, **kwargs):
+        '''Create a rectangle.
+
+        Parameters
+        -----------
+        *args, **kwargs : array[SurfaceBase]
+        '''
         p = Rectangle(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_disk(self, *args, **kwargs):
+        '''Create a disk.
+
+        Parameters
+        -----------
+        *args, **kwargs : array[SurfaceBase]
+        '''
         p = Disk(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_ball(self, *args, **kwargs):
+        '''Create a ball.
+
+        Parameters
+        -----------
+        *args, **kwargs : array[VolumeBase]
+        '''
         p = Ball(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_box(self, *args, **kwargs):
+        '''Create a box.
+
+        Parameters
+        -----------
+        *args, **kwargs : array[VolumeBase]
+        '''
         p = Box(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_cone(self, *args, **kwargs):
+        '''Create a cone.
+
+        Parameters
+        -----------
+        *args, **kwargs : array[VolumeBase]
+        '''
         p = Cone(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_cylinder(self, *args, **kwargs):
+        '''Create a cylinder.
+
+        Parameters
+        -----------
+        *args, **kwargs : array[VolumeBase]
+        '''
         p = Cylinder(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_torus(self, *args, **kwargs):
+        '''Create a torus.
+
+        Parameters
+        -----------
+        *args, **kwargs : array[VolumeBase]
+        '''
         p = Torus(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
 
     def add_wedge(self, *args, **kwargs):
+        '''Create a wedge.
+
+        Parameters
+        -----------
+        *args, **kwargs : array[VolumeBase]
+        '''
         p = Wedge(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
         return p
