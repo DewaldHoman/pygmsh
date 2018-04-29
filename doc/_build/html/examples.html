@@ -1,0 +1,244 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Examples &#8212; pygmsh 4.1.4 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Geometry Construction" href="geometry.html" />
+    <link rel="prev" title="pygmsh’s Documentation" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="geometry.html" title="Geometry Construction"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="pygmsh’s Documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pygmsh 4.1.4 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="built-in-geometry">
+<h2>Built-in Geometry<a class="headerlink" href="#built-in-geometry" title="Permalink to this headline">¶</a></h2>
+<p>This is an example showing how to create a mesh of a simple skrew using the built-in geometry module:</p>
+<img alt="https://nschloe.github.io/pygmsh/screw.png" class="align-center" src="https://nschloe.github.io/pygmsh/screw.png" />
+<p>To create the above mesh, simply do:</p>
+<p><a class="reference download internal" href="_downloads/built_in_tut1.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">file</span></code></a></p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygmsh</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">pygmsh</span><span class="o">.</span><span class="n">built_in</span><span class="o">.</span><span class="n">Geometry</span><span class="p">()</span>
+
+<span class="c1"># Draw a cross.</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">add_polygon</span><span class="p">([</span>
+    <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>  <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mf">0.1</span><span class="p">,</span>  <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="n">lcar</span><span class="o">=</span><span class="mf">0.05</span>
+    <span class="p">)</span>
+
+<span class="n">axis</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">geom</span><span class="o">.</span><span class="n">extrude</span><span class="p">(</span>
+    <span class="n">poly</span><span class="p">,</span>
+    <span class="n">translation_axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+    <span class="n">rotation_axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+    <span class="n">point_on_axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mf">2.0</span> <span class="o">/</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="p">)</span>
+
+<span class="n">points</span><span class="p">,</span> <span class="n">cells</span><span class="p">,</span> <span class="n">point_data</span><span class="p">,</span> <span class="n">cell_data</span><span class="p">,</span> <span class="n">field_data</span> <span class="o">=</span> <span class="n">pygmsh</span><span class="o">.</span><span class="n">generate_mesh</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>to retrieve all points and cells of the mesh for the specified geometry.
+To store the mesh, you can use <a class="reference external" href="https://pypi.org/project/meshio">meshio</a>;
+for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">meshio</span>
+<span class="n">meshio</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;test.vtu&#39;</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">cells</span><span class="p">,</span> <span class="n">cell_data</span><span class="o">=</span><span class="n">cell_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output file can be visualized with various tools, e.g.,
+<a class="reference external" href="https://www.paraview.org/">ParaView</a>.</p>
+<p>You will find the above mesh in the directory
+<a class="reference external" href="https://github.com/nschloe/pygmsh/tree/master/test/">test/</a> along with other
+small examples.</p>
+</div>
+<div class="section" id="opencascade-geometry">
+<h2>OpenCASCADE Geometry<a class="headerlink" href="#opencascade-geometry" title="Permalink to this headline">¶</a></h2>
+<p>As of version 3.0, Gmsh supports OpenCASCADE, allowing for a CAD-style geometry specification.</p>
+<p>This is an example showing how to create a mesh of a simple puzzle piece using the OpenCASCADE geometry module:</p>
+<img alt="https://nschloe.github.io/pygmsh/puzzle.png" class="align-center" src="https://nschloe.github.io/pygmsh/puzzle.png" />
+<p>To create the above mesh, simply do:</p>
+<p><a class="reference download internal" href="_downloads/built_in_tut1.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">file</span></code></a></p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygmsh</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">pygmsh</span><span class="o">.</span><span class="n">opencascade</span><span class="o">.</span><span class="n">Geometry</span><span class="p">(</span>
+  <span class="n">characteristic_length_min</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+  <span class="n">characteristic_length_max</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+  <span class="p">)</span>
+
+<span class="n">rectangle</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">add_rectangle</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="n">disk1</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">add_disk</span><span class="p">([</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">disk2</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">add_disk</span><span class="p">([</span><span class="o">+</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">union</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">boolean_union</span><span class="p">([</span><span class="n">rectangle</span><span class="p">,</span> <span class="n">disk1</span><span class="p">,</span> <span class="n">disk2</span><span class="p">])</span>
+
+<span class="n">disk3</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">add_disk</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">disk4</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">add_disk</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">flat</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">boolean_difference</span><span class="p">([</span><span class="n">union</span><span class="p">],</span> <span class="p">[</span><span class="n">disk3</span><span class="p">,</span> <span class="n">disk4</span><span class="p">])</span>
+
+<span class="n">geom</span><span class="o">.</span><span class="n">extrude</span><span class="p">(</span><span class="n">flat</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+
+<span class="n">points</span><span class="p">,</span> <span class="n">cells</span><span class="p">,</span> <span class="n">point_data</span><span class="p">,</span> <span class="n">cell_data</span><span class="p">,</span> <span class="n">field_data</span> <span class="o">=</span> <span class="n">pygmsh</span><span class="o">.</span><span class="n">generate_mesh</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Examples</a><ul>
+<li><a class="reference internal" href="#built-in-geometry">Built-in Geometry</a></li>
+<li><a class="reference internal" href="#opencascade-geometry">OpenCASCADE Geometry</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">pygmsh’s Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="geometry.html"
+                        title="next chapter">Geometry Construction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/examples.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="geometry.html" title="Geometry Construction"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="pygmsh’s Documentation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pygmsh 4.1.4 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015-2017, Nico Schlömer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>
