@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Geometry Construction &#8212; pygmsh 4.1.4 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -17,26 +17,15 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Indices and tables" href="indeces.html" />
-    <link rel="prev" title="Examples" href="examples.html" /> 
+    <link rel="prev" title="Examples" href="examples.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="indeces.html" title="Indices and tables"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="examples.html" title="Examples"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pygmsh 4.1.4 documentation</a> &#187;</li> 
-      </ul>
-    </div>  
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -69,12 +58,18 @@ points, c1, c2, etc. for circles and so on.</p>
 <dt id="pygmsh.built_in.geometry.Geometry.add_background_field">
 <code class="descname">add_background_field</code><span class="sig-paren">(</span><em>fields</em>, <em>aggregation_type='Min'</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_background_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create background field.</p>
-<dl class="docutils">
-<dt>fields <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>General mesh size (non-uniform) background fields.</dd>
-<dt>aggregation_type <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>Type of field (e.g. PostView, Min) with own options.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fields</strong> (<em>expression</em>) – General mesh size (non-uniform) background fields.</li>
+<li><strong>aggregation_type</strong> (<em>expression</em>) – Type of field (e.g. PostView, Min) with own options.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -82,144 +77,192 @@ points, c1, c2, etc. for circles and so on.</p>
 <code class="descname">add_ball</code><span class="sig-paren">(</span><em>x0</em>, <em>radius</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_ball" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ball with midpoint
 <span class="math notranslate">\(x_0\)</span>.</p>
-<dl class="docutils">
-<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Midpoint coordinates of ball.</dd>
-<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Radius of ball in all three coordinate directions.</dd>
-<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Characteristic length of ball.</dd>
-<dt>with_volume <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd>Whether to construct a volume from the ball.</dd>
-<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>Holes to add to ball.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Midpoint coordinates of ball.</li>
+<li><strong>radius</strong> (<em>float</em>) – Radius of ball in all three coordinate directions.</li>
+<li><strong>lcar</strong> (<em>float</em>) – Characteristic length of ball.</li>
+<li><strong>with_volume</strong> (<em>boolean</em>) – Whether to construct a volume from the ball.</li>
+<li><strong>holes</strong> (<em>expression</em>) – Holes to add to ball.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_boundary_layer">
 <code class="descname">add_boundary_layer</code><span class="sig-paren">(</span><em>edges_list=None</em>, <em>faces_list=None</em>, <em>nodes_list=None</em>, <em>anisomax=None</em>, <em>hfar=None</em>, <em>hwall_n=None</em>, <em>ratio=None</em>, <em>thickness=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_boundary_layer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create boundary layer field with associated options.</p>
-<dl class="docutils">
-<dt>edges_list <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
-<dd>Indices of curves in the geometric model.</dd>
-<dt>faces_list <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
-<dd>Indices of surfaces in the geometric model (Experimental feature).</dd>
-<dt>nodes_list <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
-<dd>Indices of nodes in the geometric model.</dd>
-<dt>anisomax <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Threshold angle for creating a mesh fan in the boundary layer.</dd>
-<dt>hfar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Element size far from the wall.</dd>
-<dt>hwall_n <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Mesh size normal to the wall.</dd>
-<dt>ratio <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Size ratio between two successive layers.</dd>
-<dt>thickness <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Maximal thickness of the boundary layer.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>edges_list</strong> (<em>list</em>) – Indices of curves in the geometric model.</li>
+<li><strong>faces_list</strong> (<em>list</em>) – Indices of surfaces in the geometric model (Experimental feature).</li>
+<li><strong>nodes_list</strong> (<em>list</em>) – Indices of nodes in the geometric model.</li>
+<li><strong>anisomax</strong> (<em>float</em>) – Threshold angle for creating a mesh fan in the boundary layer.</li>
+<li><strong>hfar</strong> (<em>float</em>) – Element size far from the wall.</li>
+<li><strong>hwall_n</strong> (<em>float</em>) – Mesh size normal to the wall.</li>
+<li><strong>ratio</strong> (<em>float</em>) – Size ratio between two successive layers.</li>
+<li><strong>thickness</strong> (<em>float</em>) – Maximal thickness of the boundary layer.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_box">
 <code class="descname">add_box</code><span class="sig-paren">(</span><em>x0</em>, <em>x1</em>, <em>y0</em>, <em>y1</em>, <em>z0</em>, <em>z1</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a box.</p>
-<dl class="docutils">
-<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>First (either leftmost or rightmost) x-coordinate of box.</dd>
-<dt>x1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Second (either leftmost or rightmost) x-coordinate of box.</dd>
-<dt>y0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>First (either highest or lowest) y-coordinate of box.</dd>
-<dt>y1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Second (either highest or lowest) y-coordinate of box.</dd>
-<dt>Z0 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>First (either deepest or shallowest) z-coordinate of box.</dd>
-<dt>Z1 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Second (either deepest or shallowest) z-coordinate of box.</dd>
-<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Characteristic length of ball.</dd>
-<dt>with_volume <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd>Whether to construct a volume from the ball.</dd>
-<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>Holes to add to ball.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<em>float</em>) – First (either leftmost or rightmost) x-coordinate of box.</li>
+<li><strong>x1</strong> (<em>float</em>) – Second (either leftmost or rightmost) x-coordinate of box.</li>
+<li><strong>y0</strong> (<em>float</em>) – First (either highest or lowest) y-coordinate of box.</li>
+<li><strong>y1</strong> (<em>float</em>) – Second (either highest or lowest) y-coordinate of box.</li>
+<li><strong>Z0</strong> (<em>float</em>) – First (either deepest or shallowest) z-coordinate of box.</li>
+<li><strong>Z1</strong> (<em>float</em>) – Second (either deepest or shallowest) z-coordinate of box.</li>
+<li><strong>lcar</strong> (<em>float</em>) – Characteristic length of ball.</li>
+<li><strong>with_volume</strong> (<em>boolean</em>) – Whether to construct a volume from the ball.</li>
+<li><strong>holes</strong> (<em>expression</em>) – Holes to add to ball.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_bspline">
 <code class="descname">add_bspline</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_bspline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a BSpline.</p>
-<p><a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs : array[LineBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_circle">
 <code class="descname">add_circle</code><span class="sig-paren">(</span><em>x0</em>, <em>radius</em>, <em>lcar</em>, <em>R=None</em>, <em>compound=False</em>, <em>num_sections=3</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_circle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add circle in the <span class="math notranslate">\(x\)</span>-<span class="math notranslate">\(y\)</span>-plane.</p>
-<dl class="docutils">
-<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Midpoint coordinates of circle.</dd>
-<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Radius of the circle.</dd>
-<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Characteristic length of the circle.</dd>
-<dt>R <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Transformation point coordinates.</dd>
-<dt>compound <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd>Create compound line from circle arcs.</dd>
-<dt>num_sections <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
-<dd>Number of circle arc sections.</dd>
-<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>Holes to add to the circle.</dd>
-<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd>Whether to make a surface of the circle.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Midpoint coordinates of circle.</li>
+<li><strong>radius</strong> (<em>float</em>) – Radius of the circle.</li>
+<li><strong>lcar</strong> (<em>float</em>) – Characteristic length of the circle.</li>
+<li><strong>R</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Transformation point coordinates.</li>
+<li><strong>compound</strong> (<em>boolean</em>) – Create compound line from circle arcs.</li>
+<li><strong>num_sections</strong> (<em>number</em>) – Number of circle arc sections.</li>
+<li><strong>holes</strong> (<em>expression</em>) – Holes to add to the circle.</li>
+<li><strong>make_surface</strong> (<em>boolean</em>) – Whether to make a surface of the circle.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_circle_arc">
 <code class="descname">add_circle_arc</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_circle_arc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a Circle arc.</p>
-<p><a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs : array[LineBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_comment">
 <code class="descname">add_comment</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create comment for Gmsh code.</p>
-<dl class="docutils">
-<dt>string: string</dt>
-<dd>Value to add as comment.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> (<em>string</em>) – Value to add as comment.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_compound_line">
 <code class="descname">add_compound_line</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_compound_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a compound line.</p>
-<p><a href="#id9"><span class="problematic" id="id10">*</span></a>args, <a href="#id11"><span class="problematic" id="id12">**</span></a>kwargs : array[LineBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_compound_surface">
 <code class="descname">add_compound_surface</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_compound_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a compound surface.</p>
-<p><a href="#id13"><span class="problematic" id="id14">*</span></a>args, <a href="#id15"><span class="problematic" id="id16">**</span></a>kwargs : array[SurfaceBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_compound_volume">
 <code class="descname">add_compound_volume</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_compound_volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a compound volume.</p>
-<p><a href="#id17"><span class="problematic" id="id18">*</span></a>args, <a href="#id19"><span class="problematic" id="id20">**</span></a>kwargs : array[volume]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_ellipse_arc">
 <code class="descname">add_ellipse_arc</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_ellipse_arc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an elliptical arc.</p>
-<p><a href="#id21"><span class="problematic" id="id22">*</span></a>args, <a href="#id23"><span class="problematic" id="id24">**</span></a>kwargs : array[LineBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -227,214 +270,308 @@ points, c1, c2, etc. for circles and so on.</p>
 <code class="descname">add_ellipsoid</code><span class="sig-paren">(</span><em>x0</em>, <em>radii</em>, <em>lcar</em>, <em>with_volume=True</em>, <em>holes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an ellipsoid with radii around a given midpoint
 <span class="math notranslate">\(x_0\)</span> (not available in regular Gmsh).</p>
-<dl class="docutils">
-<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Midpoint coordinates of ellipsoid.</dd>
-<dt>radii <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Radius of ellipsoid in three coordinate directions.</dd>
-<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Characteristic length of ellipsoid.</dd>
-<dt>with_volume <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd>Whether to construct a volume from the ellipsoid.</dd>
-<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>Holes to add to ellipsoid.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Midpoint coordinates of ellipsoid.</li>
+<li><strong>radii</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Radius of ellipsoid in three coordinate directions.</li>
+<li><strong>lcar</strong> (<em>float</em>) – Characteristic length of ellipsoid.</li>
+<li><strong>with_volume</strong> (<em>boolean</em>) – Whether to construct a volume from the ellipsoid.</li>
+<li><strong>holes</strong> (<em>expression</em>) – Holes to add to ellipsoid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_line">
 <code class="descname">add_line</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a line.</p>
-<p><a href="#id25"><span class="problematic" id="id26">*</span></a>args, <a href="#id27"><span class="problematic" id="id28">**</span></a>kwargs : array[LineBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_line_loop">
 <code class="descname">add_line_loop</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_line_loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a line loop.</p>
-<p><a href="#id29"><span class="problematic" id="id30">*</span></a>args, <a href="#id31"><span class="problematic" id="id32">**</span></a>kwargs : array[line]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_physical_line">
 <code class="descname">add_physical_line</code><span class="sig-paren">(</span><em>lines</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_physical_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create physical line.</p>
-<dl class="docutils">
-<dt>lines <span class="classifier-delimiter">:</span> <span class="classifier">array[line]</span></dt>
-<dd>Lines to classify as physical lines.</dd>
-<dt>label <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
-<dd>Label of physical line.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lines</strong> (<em>array</em><em>[</em><em>line</em><em>]</em>) – Lines to classify as physical lines.</li>
+<li><strong>label</strong> (<em>string</em>) – Label of physical line.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_physical_point">
 <code class="descname">add_physical_point</code><span class="sig-paren">(</span><em>points</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_physical_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create physical point.</p>
-<dl class="docutils">
-<dt>points <span class="classifier-delimiter">:</span> <span class="classifier">array[point]</span></dt>
-<dd>Points to classify as physical points.</dd>
-<dt>label <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
-<dd>Label of physical point.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>points</strong> (<em>array</em><em>[</em><em>point</em><em>]</em>) – Points to classify as physical points.</li>
+<li><strong>label</strong> (<em>string</em>) – Label of physical point.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_physical_surface">
 <code class="descname">add_physical_surface</code><span class="sig-paren">(</span><em>surfaces</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_physical_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create physical surface.</p>
-<dl class="docutils">
-<dt>surfaces <span class="classifier-delimiter">:</span> <span class="classifier">array[surface]</span></dt>
-<dd>Surfaces to classify as physical surfaces.</dd>
-<dt>label <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
-<dd>Label of physical surface.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>surfaces</strong> (<em>array</em><em>[</em><em>surface</em><em>]</em>) – Surfaces to classify as physical surfaces.</li>
+<li><strong>label</strong> (<em>string</em>) – Label of physical surface.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_physical_volume">
 <code class="descname">add_physical_volume</code><span class="sig-paren">(</span><em>volumes</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_physical_volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create physical volume.</p>
-<dl class="docutils">
-<dt>volumes <span class="classifier-delimiter">:</span> <span class="classifier">array[volume]</span></dt>
-<dd>Volumes to classify as physical volumes.</dd>
-<dt>label <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
-<dd>Label of physical volume.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>volumes</strong> (<em>array</em><em>[</em><em>volume</em><em>]</em>) – Volumes to classify as physical volumes.</li>
+<li><strong>label</strong> (<em>string</em>) – Label of physical volume.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_pipe">
 <code class="descname">add_pipe</code><span class="sig-paren">(</span><em>outer_radius, inner_radius, length, R=array([[1., 0., 0.],        [0., 1., 0.],        [0., 0., 1.]]), x0=array([0., 0., 0.]), lcar=0.1, variant='rectangle_rotation'</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_pipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a pipe.</p>
-<dl class="docutils">
-<dt>outer_radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Outer radius of the pipe.</dd>
-<dt>inner_radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Inner radius of the pipe.</dd>
-<dt>length <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Length of the pipe.</dd>
-<dt>R <span class="classifier-delimiter">:</span> <span class="classifier">[[float],[float],[float]]</span></dt>
-<dd>Directional vector coordinates for pipe transformation.</dd>
-<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Center point coordinates.</dd>
-<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Characteristic length of pipe.</dd>
-<dt>variant <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>Type of pipe construction (e.g. rectangle_rotation, circle_extrusion).</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>outer_radius</strong> (<em>float</em>) – Outer radius of the pipe.</li>
+<li><strong>inner_radius</strong> (<em>float</em>) – Inner radius of the pipe.</li>
+<li><strong>length</strong> (<em>float</em>) – Length of the pipe.</li>
+<li><strong>R</strong> (<em>[</em><em>[</em><em>float</em><em>]</em><em>,</em><em>[</em><em>float</em><em>]</em><em>,</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Directional vector coordinates for pipe transformation.</li>
+<li><strong>x0</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Center point coordinates.</li>
+<li><strong>lcar</strong> (<em>float</em>) – Characteristic length of pipe.</li>
+<li><strong>variant</strong> (<em>expression</em>) – Type of pipe construction (e.g. rectangle_rotation, circle_extrusion).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_plane_surface">
 <code class="descname">add_plane_surface</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_plane_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a plane surface.</p>
-<p><a href="#id33"><span class="problematic" id="id34">*</span></a>args, <a href="#id35"><span class="problematic" id="id36">**</span></a>kwargs : array[line_loop, holes=None]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_point">
 <code class="descname">add_point</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a point.</p>
-<p><a href="#id37"><span class="problematic" id="id38">*</span></a>args, <a href="#id39"><span class="problematic" id="id40">**</span></a>kwargs : array[x, lcar]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_polygon">
 <code class="descname">add_polygon</code><span class="sig-paren">(</span><em>X</em>, <em>lcar</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_polygon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a polygon.</p>
-<dl class="docutils">
-<dt>X <span class="classifier-delimiter">:</span> <span class="classifier">array[float, float, float]</span></dt>
-<dd>Set of point coordinates for polygon.</dd>
-<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Characteristic length of polygon.</dd>
-<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>Holes to add to polygon.</dd>
-<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd>Whether to construct a surface on the polygonial plane.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>X</strong> (<em>array</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Set of point coordinates for polygon.</li>
+<li><strong>lcar</strong> (<em>float</em>) – Characteristic length of polygon.</li>
+<li><strong>holes</strong> (<em>expression</em>) – Holes to add to polygon.</li>
+<li><strong>make_surface</strong> (<em>boolean</em>) – Whether to construct a surface on the polygonial plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_raw_code">
 <code class="descname">add_raw_code</code><span class="sig-paren">(</span><em>string_or_list</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_raw_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add raw Gmsh code.</p>
-<dl class="docutils">
-<dt>string_or_list: string or list</dt>
-<dd>Value to add code to Gmsh output code.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string_or_list</strong> (<em>string</em><em> or </em><em>list</em>) – Value to add code to Gmsh output code.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_rectangle">
 <code class="descname">add_rectangle</code><span class="sig-paren">(</span><em>xmin</em>, <em>xmax</em>, <em>ymin</em>, <em>ymax</em>, <em>z</em>, <em>lcar</em>, <em>holes=None</em>, <em>make_surface=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_rectangle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a rectangle using built-in geometry (not available in regular Gmsh).</p>
-<dl class="docutils">
-<dt>xmin <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Leftmost x-coordinate.</dd>
-<dt>xmax <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Rightmost x-coordinate.</dd>
-<dt>ymin <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Lowest y-coordinate.</dd>
-<dt>ymax <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Highest y-coordinate.</dd>
-<dt>z <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>z-plane coordinate.</dd>
-<dt>lcar <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Characteristic length of rectangle.</dd>
-<dt>holes <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>Holes to add to rectangle.</dd>
-<dt>make_surface <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd>Whether to construct a surface on the rectangular plane.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>xmin</strong> (<em>float</em>) – Leftmost x-coordinate.</li>
+<li><strong>xmax</strong> (<em>float</em>) – Rightmost x-coordinate.</li>
+<li><strong>ymin</strong> (<em>float</em>) – Lowest y-coordinate.</li>
+<li><strong>ymax</strong> (<em>float</em>) – Highest y-coordinate.</li>
+<li><strong>z</strong> (<em>float</em>) – z-plane coordinate.</li>
+<li><strong>lcar</strong> (<em>float</em>) – Characteristic length of rectangle.</li>
+<li><strong>holes</strong> (<em>expression</em>) – Holes to add to rectangle.</li>
+<li><strong>make_surface</strong> (<em>boolean</em>) – Whether to construct a surface on the rectangular plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_spline">
 <code class="descname">add_spline</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_spline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a spline.</p>
-<p><a href="#id41"><span class="problematic" id="id42">*</span></a>args, <a href="#id43"><span class="problematic" id="id44">**</span></a>kwargs : array[LineBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_surface">
 <code class="descname">add_surface</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a surface.</p>
-<p><a href="#id45"><span class="problematic" id="id46">*</span></a>args, <a href="#id47"><span class="problematic" id="id48">**</span></a>kwargs : array[line_loop, api_level=2]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_surface_loop">
 <code class="descname">add_surface_loop</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_surface_loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a surface loop.</p>
-<p><a href="#id49"><span class="problematic" id="id50">*</span></a>args, <a href="#id51"><span class="problematic" id="id52">**</span></a>kwargs : array[surfaces]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_torus">
 <code class="descname">add_torus</code><span class="sig-paren">(</span><em>irad, orad, lcar, R=array([[1., 0., 0.],        [0., 1., 0.],        [0., 0., 1.]]), x0=array([0., 0., 0.]), variant='extrude_lines'</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_torus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a torus in the x-y direction using .. math:: hat{x} = R x + x_0.</p>
-<dl class="docutils">
-<dt>irad <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Inner radius of torus.</dd>
-<dt>orad <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Outer radius of torus.</dd>
-<dt>lcar: float</dt>
-<dd>Characteristic length of torus.</dd>
-<dt>R <span class="classifier-delimiter">:</span> <span class="classifier">[[float],[float],[float]]</span></dt>
-<dd>Directional vector coordinates for torus transformation.</dd>
-<dt>x0: [float,float,float]</dt>
-<dd>Center coordinates of torus.</dd>
-<dt>variant: expression</dt>
-<dd>Torus type description (e.g. extrude_lines, extrude_circle).</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>irad</strong> (<em>float</em>) – Inner radius of torus.</li>
+<li><strong>orad</strong> (<em>float</em>) – Outer radius of torus.</li>
+<li><strong>lcar</strong> (<em>float</em>) – Characteristic length of torus.</li>
+<li><strong>R</strong> (<em>[</em><em>[</em><em>float</em><em>]</em><em>,</em><em>[</em><em>float</em><em>]</em><em>,</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Directional vector coordinates for torus transformation.</li>
+<li><strong>x0</strong> (<em>[</em><em>float</em><em>,</em><em>float</em><em>,</em><em>float</em><em>]</em>) – Center coordinates of torus.</li>
+<li><strong>variant</strong> (<em>expression</em>) – Torus type description (e.g. extrude_lines, extrude_circle).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.built_in.geometry.Geometry.add_volume">
 <code class="descname">add_volume</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.add_volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a volume.</p>
-<p>*args, **kwargs : array[VolumeBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -444,20 +581,22 @@ points, c1, c2, etc. for circles and so on.</p>
 translation_axis, around a given rotation_axis, about a given angle. If
 one of the entities is not provided, this method will produce only
 translation or rotation.</p>
-<dl class="docutils">
-<dt>input_entity <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
-<dd>Entity to perform extrusion on.</dd>
-<dt>translation_axis <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Axis of translation coordinates.</dd>
-<dt>rotation_axis <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Axis of rotation coordinates.</dd>
-<dt>point_on_axis <span class="classifier-delimiter">:</span> <span class="classifier">[float, float, float]</span></dt>
-<dd>Coordinates of point on axis of translation and rotation.</dd>
-<dt>angle <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Angle of rotation.</dd>
-<dt>recombine <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
-<dd>Whether to recombine the extrusion layers.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_entity</strong> (<em>object</em>) – Entity to perform extrusion on.</li>
+<li><strong>translation_axis</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Axis of translation coordinates.</li>
+<li><strong>rotation_axis</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Axis of rotation coordinates.</li>
+<li><strong>point_on_axis</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Coordinates of point on axis of translation and rotation.</li>
+<li><strong>angle</strong> (<em>float</em>) – Angle of rotation.</li>
+<li><strong>recombine</strong> (<em>boolean</em>) – Whether to recombine the extrusion layers.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -470,12 +609,18 @@ translation or rotation.</p>
 <dt id="pygmsh.built_in.geometry.Geometry.translate">
 <code class="descname">translate</code><span class="sig-paren">(</span><em>input_entity</em>, <em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.geometry.Geometry.translate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translate input_entity itself by vector. Changes the input object.</p>
-<dl class="docutils">
-<dt>input_entity <span class="classifier-delimiter">:</span> <span class="classifier">expression</span></dt>
-<dd>The entity to perform translation on.</dd>
-<dt>vector <span class="classifier-delimiter">:</span> <span class="classifier">vector</span></dt>
-<dd>The translation vector.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_entity</strong> (<em>expression</em>) – The entity to perform translation on.</li>
+<li><strong>vector</strong> (<em>vector</em>) – The translation vector.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -491,56 +636,112 @@ translation or rotation.</p>
 <dt id="pygmsh.opencascade.geometry.Geometry.add_ball">
 <code class="descname">add_ball</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_ball" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ball.</p>
-<p><a href="#id53"><span class="problematic" id="id54">*</span></a>args, <a href="#id55"><span class="problematic" id="id56">**</span></a>kwargs : array[VolumeBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_box">
 <code class="descname">add_box</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a box.</p>
-<p><a href="#id57"><span class="problematic" id="id58">*</span></a>args, <a href="#id59"><span class="problematic" id="id60">**</span></a>kwargs : array[VolumeBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_cone">
 <code class="descname">add_cone</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_cone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a cone.</p>
-<p><a href="#id61"><span class="problematic" id="id62">*</span></a>args, <a href="#id63"><span class="problematic" id="id64">**</span></a>kwargs : array[VolumeBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_cylinder">
 <code class="descname">add_cylinder</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_cylinder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a cylinder.</p>
-<p><a href="#id65"><span class="problematic" id="id66">*</span></a>args, <a href="#id67"><span class="problematic" id="id68">**</span></a>kwargs : array[VolumeBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_disk">
 <code class="descname">add_disk</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_disk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a disk.</p>
-<p><a href="#id69"><span class="problematic" id="id70">*</span></a>args, <a href="#id71"><span class="problematic" id="id72">**</span></a>kwargs : array[SurfaceBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_rectangle">
 <code class="descname">add_rectangle</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_rectangle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a rectangle.</p>
-<p><a href="#id73"><span class="problematic" id="id74">*</span></a>args, <a href="#id75"><span class="problematic" id="id76">**</span></a>kwargs : array[SurfaceBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_torus">
 <code class="descname">add_torus</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_torus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a torus.</p>
-<p><a href="#id77"><span class="problematic" id="id78">*</span></a>args, <a href="#id79"><span class="problematic" id="id80">**</span></a>kwargs : array[VolumeBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pygmsh.opencascade.geometry.Geometry.add_wedge">
 <code class="descname">add_wedge</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry.add_wedge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a wedge.</p>
-<p><a href="#id81"><span class="problematic" id="id82">*</span></a>args, <a href="#id83"><span class="problematic" id="id84">**</span></a>kwargs : array[VolumeBase]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kwargs</strong> (<em>*args</em><em>,</em>) – </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -653,13 +854,15 @@ by the angle <span class="math notranslate">\(\theta\)</span>, cf.
 </ul>
 </li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="examples.html"
-                        title="previous chapter">Examples</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="indeces.html"
-                        title="next chapter">Indices and tables</a></p>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="examples.html" title="previous chapter">Examples</a></li>
+      <li>Next: <a href="indeces.html" title="next chapter">Indices and tables</a></li>
+  </ul></li>
+</ul>
+</div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -683,27 +886,20 @@ by the angle <span class="math notranslate">\(\theta\)</span>, cf.
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="indeces.html" title="Indices and tables"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="examples.html" title="Examples"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pygmsh 4.1.4 documentation</a> &#187;</li> 
-      </ul>
+    <div class="footer">
+      &copy;2015-2018, Nico Schlömer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/geometry.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2017, Nico Schlömer.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
-    </div>
+
+    
+
+    
   </body>
 </html>
