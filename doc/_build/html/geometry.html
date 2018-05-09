@@ -82,7 +82,7 @@ points, c1, c2, etc. for circles and so on.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x0</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Midpoint coordinates of ball.</li>
+<li><strong>x0</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Midpoint coordinates of ball.</li>
 <li><strong>radius</strong> (<em>float</em>) – Radius of ball in all three coordinate directions.</li>
 <li><strong>lcar</strong> (<em>float</em>) – Characteristic length of ball.</li>
 <li><strong>with_volume</strong> (<em>boolean</em>) – Whether to construct a volume from the ball.</li>
@@ -151,10 +151,11 @@ points, c1, c2, etc. for circles and so on.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>*args</strong> – <p>Variable length argument list of control_points.
-**kwargs</p>
-<blockquote>
-<div>Arbitrary keyword arguments describing control_points.</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>*args</strong> – <p>Variable length argument list of control_points.</p>
+<dl class="docutils">
+<dt>**kwargs</dt>
+<dd>Arbitrary keyword arguments describing control_points.</dd>
+</dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Bspline object according to control_points.</td>
@@ -174,10 +175,10 @@ points, c1, c2, etc. for circles and so on.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x0</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Midpoint coordinates of circle.</li>
+<li><strong>x0</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Midpoint coordinates of circle.</li>
 <li><strong>radius</strong> (<em>float</em>) – Radius of the circle.</li>
 <li><strong>lcar</strong> (<em>float</em>) – Characteristic length of the circle.</li>
-<li><strong>R</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Transformation point coordinates.</li>
+<li><strong>R</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Transformation point coordinates.</li>
 <li><strong>compound</strong> (<em>boolean</em>) – Create compound line from circle arcs.</li>
 <li><strong>num_sections</strong> (<em>number</em>) – Number of circle arc sections.</li>
 <li><strong>holes</strong> (<em>expression</em>) – Holes to add to the circle.</li>
@@ -235,10 +236,11 @@ points, c1, c2, etc. for circles and so on.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>*args</strong> – <p>Variable length argument list of lines.
-**kwargs</p>
-<blockquote>
-<div>Arbitrary keyword arguments describing lines.</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>*args</strong> – <p>Variable length argument list of lines.</p>
+<dl class="docutils">
+<dt>**kwargs</dt>
+<dd>Arbitrary keyword arguments describing lines.</dd>
+</dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">CompoundLine object according to lines.</td>
@@ -301,8 +303,8 @@ points, c1, c2, etc. for circles and so on.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x0</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Midpoint coordinates of ellipsoid.</li>
-<li><strong>radii</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Radius of ellipsoid in three coordinate directions.</li>
+<li><strong>x0</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Midpoint coordinates of ellipsoid.</li>
+<li><strong>radii</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Radius of ellipsoid in three coordinate directions.</li>
 <li><strong>lcar</strong> (<em>float</em>) – Characteristic length of ellipsoid.</li>
 <li><strong>with_volume</strong> (<em>boolean</em>) – Whether to construct a volume from the ellipsoid.</li>
 <li><strong>holes</strong> (<em>expression</em>) – Holes to add to ellipsoid.</li>
@@ -425,8 +427,8 @@ points, c1, c2, etc. for circles and so on.</p>
 <li><strong>outer_radius</strong> (<em>float</em>) – Outer radius of the pipe.</li>
 <li><strong>inner_radius</strong> (<em>float</em>) – Inner radius of the pipe.</li>
 <li><strong>length</strong> (<em>float</em>) – Length of the pipe.</li>
-<li><strong>R</strong> (<em>[</em><em>[</em><em>float</em><em>]</em><em>,</em><em>[</em><em>float</em><em>]</em><em>,</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Directional vector coordinates for pipe transformation.</li>
-<li><strong>x0</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Center point coordinates.</li>
+<li><strong>R</strong> (<em>array-like</em><em>[</em><em>N</em><em>]</em><em>[</em><em>3</em><em>]</em>) – Directional vector coordinates for pipe transformation.</li>
+<li><strong>x0</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Center point coordinates.</li>
 <li><strong>lcar</strong> (<em>float</em>) – Characteristic length of pipe.</li>
 <li><strong>variant</strong> (<em>expression</em>) – Type of pipe construction (e.g. rectangle_rotation, circle_extrusion).</li>
 </ul>
@@ -473,7 +475,7 @@ points, c1, c2, etc. for circles and so on.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>X</strong> (<em>array</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Set of point coordinates for polygon.</li>
+<li><strong>X</strong> (<em>array-like</em><em>[</em><em>N</em><em>]</em><em>[</em><em>3</em><em>]</em>) – Set of point coordinates for polygon.</li>
 <li><strong>lcar</strong> (<em>float</em>) – Characteristic length of polygon.</li>
 <li><strong>holes</strong> (<em>expression</em>) – Holes to add to polygon.</li>
 <li><strong>make_surface</strong> (<em>boolean</em>) – Whether to construct a surface on the polygonial plane.</li>
@@ -576,8 +578,8 @@ points, c1, c2, etc. for circles and so on.</p>
 <li><strong>irad</strong> (<em>float</em>) – Inner radius of torus.</li>
 <li><strong>orad</strong> (<em>float</em>) – Outer radius of torus.</li>
 <li><strong>lcar</strong> (<em>float</em>) – Characteristic length of torus.</li>
-<li><strong>R</strong> (<em>[</em><em>[</em><em>float</em><em>]</em><em>,</em><em>[</em><em>float</em><em>]</em><em>,</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Directional vector coordinates for torus transformation.</li>
-<li><strong>x0</strong> (<em>[</em><em>float</em><em>,</em><em>float</em><em>,</em><em>float</em><em>]</em>) – Center coordinates of torus.</li>
+<li><strong>R</strong> (<em>array-like</em><em>[</em><em>N</em><em>]</em><em>[</em><em>3</em><em>]</em>) – Directional vector coordinates for torus transformation.</li>
+<li><strong>x0</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Center coordinates of torus.</li>
 <li><strong>variant</strong> (<em>expression</em>) – Torus type description (e.g. extrude_lines, extrude_circle).</li>
 </ul>
 </td>
@@ -613,9 +615,9 @@ translation or rotation.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>input_entity</strong> (<em>object</em>) – Entity to perform extrusion on.</li>
-<li><strong>translation_axis</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Axis of translation coordinates.</li>
-<li><strong>rotation_axis</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Axis of rotation coordinates.</li>
-<li><strong>point_on_axis</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Coordinates of point on axis of translation and rotation.</li>
+<li><strong>translation_axis</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Axis of translation coordinates.</li>
+<li><strong>rotation_axis</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Axis of rotation coordinates.</li>
+<li><strong>point_on_axis</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Coordinates of point on axis of translation and rotation.</li>
 <li><strong>angle</strong> (<em>float</em>) – Angle of rotation.</li>
 <li><strong>recombine</strong> (<em>boolean</em>) – Whether to recombine the extrusion layers.</li>
 </ul>
@@ -651,6 +653,86 @@ translation or rotation.</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="module-pygmsh.built_in.bspline">
+<span id="bspline"></span><h4>Bspline<a class="headerlink" href="#module-pygmsh.built_in.bspline" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="pygmsh.built_in.bspline.Bspline">
+<em class="property">class </em><code class="descclassname">pygmsh.built_in.bspline.</code><code class="descname">Bspline</code><span class="sig-paren">(</span><em>control_points</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.bspline.Bspline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygmsh.built_in.line_base.LineBase</span></code></p>
+<p>Bspline of type LineBase.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>control_points</strong> (<em>array-like</em><em>[</em><em>N</em><em>]</em><em>[</em><em>3</em><em>]</em>) – Coordinates of control points needed to construct b-spline.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pygmsh.built_in.circle_arc">
+<span id="circlearc"></span><h4>CircleArc<a class="headerlink" href="#module-pygmsh.built_in.circle_arc" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="pygmsh.built_in.circle_arc.CircleArc">
+<em class="property">class </em><code class="descclassname">pygmsh.built_in.circle_arc.</code><code class="descname">CircleArc</code><span class="sig-paren">(</span><em>start</em>, <em>center</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.circle_arc.CircleArc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygmsh.built_in.line_base.LineBase</span></code></p>
+<p>CircleArc of type LineBase.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>start</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Coordinates of start point needed to construct circle-arc.</li>
+<li><strong>center</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Coordinates of center point needed to construct circle-arc.</li>
+<li><strong>end</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Coordinates of end point needed to construct circle-arc.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pygmsh.built_in.compound_line">
+<span id="compoundline"></span><h4>CompoundLine<a class="headerlink" href="#module-pygmsh.built_in.compound_line" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="pygmsh.built_in.compound_line.CompoundLine">
+<em class="property">class </em><code class="descclassname">pygmsh.built_in.compound_line.</code><code class="descname">CompoundLine</code><span class="sig-paren">(</span><em>lines</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.compound_line.CompoundLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygmsh.built_in.line_base.LineBase</span></code></p>
+<p>CompoundLine of type LineBase.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lines</strong> (<em>array-like</em><em>[</em><em>N</em><em>]</em>) – Lines to add to compound line.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pygmsh.built_in.compound_surface">
+<span id="compoundsurface"></span><h4>CompoundSurface<a class="headerlink" href="#module-pygmsh.built_in.compound_surface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="pygmsh.built_in.compound_surface.CompoundSurface">
+<em class="property">class </em><code class="descclassname">pygmsh.built_in.compound_surface.</code><code class="descname">CompoundSurface</code><span class="sig-paren">(</span><em>surfaces</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.compound_surface.CompoundSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygmsh.built_in.surface_base.SurfaceBase</span></code></p>
+<p>CompoundSurface of type SurfaceBase.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>surfaces</strong> (<em>array-like</em><em>[</em><em>N</em><em>]</em>) – Surfaces to add to compound line.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 </div>
 <div class="section" id="module-pygmsh.opencascade.geometry">
 <span id="opencascade-geometry"></span><h3>OpenCASCADE Geometry<a class="headerlink" href="#module-pygmsh.opencascade.geometry" title="Permalink to this headline">¶</a></h3>
@@ -870,6 +952,13 @@ by the angle <span class="math notranslate">\(\theta\)</span>, cf.
 <li><a class="reference internal" href="#">Geometry Construction</a><ul>
 <li><a class="reference internal" href="#modules">Modules</a><ul>
 <li><a class="reference internal" href="#module-pygmsh.built_in.geometry">Built-in Geometry</a></li>
+<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#module-pygmsh.built_in.bspline">Bspline</a></li>
+<li><a class="reference internal" href="#module-pygmsh.built_in.circle_arc">CircleArc</a></li>
+<li><a class="reference internal" href="#module-pygmsh.built_in.compound_line">CompoundLine</a></li>
+<li><a class="reference internal" href="#module-pygmsh.built_in.compound_surface">CompoundSurface</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pygmsh.opencascade.geometry">OpenCASCADE Geometry</a></li>
 </ul>
 </li>
