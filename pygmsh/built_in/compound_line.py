@@ -4,6 +4,13 @@ from .line_base import LineBase
 
 
 class CompoundLine(LineBase):
+    '''CompoundLine of type LineBase.
+
+    Parameters
+    ----------
+    lines : array-like[N]
+        Lines to add to compound line.
+    '''
     def __init__(self, lines):
         super(CompoundLine, self).__init__()
 

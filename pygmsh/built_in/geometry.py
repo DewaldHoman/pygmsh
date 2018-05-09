@@ -81,7 +81,16 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[LineBase]
+        \*args
+            Variable length argument list of control_points.
+
+         \*\*kwargs
+            Arbitrary keyword arguments describing control_points.
+
+        Returns
+        -------
+        p
+            Bspline object according to control_points.
         '''
         p = Bspline(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -92,7 +101,16 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[LineBase]
+        \*args
+            Variable length argument list of start, center and end points.
+
+        \*\*kwargs
+            Arbitrary keyword arguments describing start, center and end points.
+
+        Returns
+        -------
+        p
+            CircleArc object according to start, center and end points.
         '''
         p = CircleArc(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -103,7 +121,16 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[LineBase]
+        \*args
+            Variable length argument list of lines.
+
+         \*\*kwargs
+            Arbitrary keyword arguments describing lines.
+
+        Returns
+        -------
+        e
+            CompoundLine object according to lines.
         '''
         e = CompoundLine(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -114,7 +141,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[SurfaceBase]
+        \*args, \*\*kwargs : array[SurfaceBase]
         '''
         e = CompoundSurface(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -125,7 +152,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[volume]
+        \*args, \*\*kwargs : array[volume]
         '''
         e = CompoundVolume(*args, **kwargs)
         self._GMSH_CODE.append(e.code)
@@ -136,7 +163,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[LineBase]
+        \*args, \*\*kwargs : array[LineBase]
         '''
         p = EllipseArc(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -147,7 +174,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[LineBase]
+        \*args, \*\*kwargs : array[LineBase]
         '''
         p = Line(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -158,7 +185,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[line]
+        \*args, \*\*kwargs : array[line]
         '''
         p = LineLoop(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -169,7 +196,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[line_loop, holes=None]
+        \*args, \*\*kwargs : array[line_loop, holes=None]
         '''
         p = PlaneSurface(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -180,7 +207,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[x, lcar]
+        \*args, \*\*kwargs : array[x, lcar]
         '''
         p = Point(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -191,7 +218,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[LineBase]
+        \*args, \*\*kwargs : array[LineBase]
         '''
         p = Spline(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -202,7 +229,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[line_loop, api_level=2]
+        \*args, \*\*kwargs : array[line_loop, api_level=2]
 
         '''
         s = Surface(*args, api_level=self._GMSH_MAJOR, **kwargs)
@@ -214,7 +241,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        *args, **kwargs : array[surfaces]
+        \*args, \*\*kwargs : array[surfaces]
 
         '''
         e = SurfaceLoop(*args, **kwargs)
@@ -328,13 +355,13 @@ class Geometry(object):
 
         Parameters
         -----------
-        x0 : [float, float, float]
+        x0 : array-like[3]
             Midpoint coordinates of circle.
         radius : float
             Radius of the circle.
         lcar : float
             Characteristic length of the circle.
-        R : [float, float, float]
+        R : array-like[3]
             Transformation point coordinates.
         compound : boolean
             Create compound line from circle arcs.
@@ -438,11 +465,11 @@ class Geometry(object):
         -----------
         input_entity : object
             Entity to perform extrusion on.
-        translation_axis : [float, float, float]
+        translation_axis : array-like[3]
             Axis of translation coordinates.
-        rotation_axis : [float, float, float]
+        rotation_axis : array-like[3]
             Axis of rotation coordinates.
-        point_on_axis : [float, float, float]
+        point_on_axis : array-like[3]
             Coordinates of point on axis of translation and rotation.
         angle : float
             Angle of rotation.
@@ -718,7 +745,7 @@ class Geometry(object):
 
         Parameters
         -----------
-        X : array[float, float, float]
+        X : array-like[N][3]
             Set of point coordinates for polygon.
         lcar : float
             Characteristic length of polygon.
@@ -760,9 +787,9 @@ class Geometry(object):
 
         Parameters
         ----------
-        x0 : [float, float, float]
+        x0 : array-like[3]
             Midpoint coordinates of ellipsoid.
-        radii : [float, float, float]
+        radii : array-like[3]
             Radius of ellipsoid in three coordinate directions.
         lcar : float
             Characteristic length of ellipsoid.
@@ -856,7 +883,7 @@ class Geometry(object):
 
         Parameters
         ----------
-        x0 : [float, float, float]
+        x0 : array-like[3]
             Midpoint coordinates of ball.
         radius : float
             Radius of ball in all three coordinate directions.
@@ -986,9 +1013,9 @@ class Geometry(object):
             Outer radius of torus.
         lcar: float
             Characteristic length of torus.
-        R : [[float],[float],[float]]
+        R : array-like[N][3]
             Directional vector coordinates for torus transformation.
-        x0: [float,float,float]
+        x0: array-like[3]
             Center coordinates of torus.
         variant: expression
             Torus type description (e.g. extrude_lines, extrude_circle).
@@ -1150,9 +1177,9 @@ class Geometry(object):
             Inner radius of the pipe.
         length : float
             Length of the pipe.
-        R : [[float],[float],[float]]
+        R : array-like[N][3]
             Directional vector coordinates for pipe transformation.
-        x0 : [float, float, float]
+        x0 : array-like[3]
             Center point coordinates.
         lcar : float
             Characteristic length of pipe.

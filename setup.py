@@ -36,6 +36,7 @@ setup(
     install_requires=[
         'meshio',
         'numpy >= 1.9',
+        'sphinx_rtd_theme',
         'voropy',
         ],
     extras_require={

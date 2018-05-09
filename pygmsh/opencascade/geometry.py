@@ -55,7 +55,7 @@ class Geometry(bl.Geometry):
 
         Parameters
         -----------
-        *args, **kwargs : array[SurfaceBase]
+        \*args, \*\*kwargs : array[SurfaceBase]
         '''
         p = Rectangle(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -66,7 +66,7 @@ class Geometry(bl.Geometry):
 
         Parameters
         -----------
-        *args, **kwargs : array[SurfaceBase]
+        \*args, \*\*kwargs : array[SurfaceBase]
         '''
         p = Disk(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -77,7 +77,7 @@ class Geometry(bl.Geometry):
 
         Parameters
         -----------
-        *args, **kwargs : array[VolumeBase]
+        \*args, \*\*kwargs : array[VolumeBase]
         '''
         p = Ball(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -88,7 +88,7 @@ class Geometry(bl.Geometry):
 
         Parameters
         -----------
-        *args, **kwargs : array[VolumeBase]
+        \*args, \*\*kwargs : array[VolumeBase]
         '''
         p = Box(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -99,7 +99,7 @@ class Geometry(bl.Geometry):
 
         Parameters
         -----------
-        *args, **kwargs : array[VolumeBase]
+        \*args, \*\*kwargs : array[VolumeBase]
         '''
         p = Cone(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -110,7 +110,7 @@ class Geometry(bl.Geometry):
 
         Parameters
         -----------
-        *args, **kwargs : array[VolumeBase]
+        \*args, \*\*kwargs : array[VolumeBase]
         '''
         p = Cylinder(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -121,7 +121,7 @@ class Geometry(bl.Geometry):
 
         Parameters
         -----------
-        *args, **kwargs : array[VolumeBase]
+        \*args, \*\*kwargs : array[VolumeBase]
         '''
         p = Torus(*args, **kwargs)
         self._GMSH_CODE.append(p.code)
@@ -132,7 +132,7 @@ class Geometry(bl.Geometry):
 
         Parameters
         -----------
-        *args, **kwargs : array[VolumeBase]
+        \*args, \*\*kwargs : array[VolumeBase]
         '''
         p = Wedge(*args, **kwargs)
         self._GMSH_CODE.append(p.code)

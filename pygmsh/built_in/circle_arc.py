@@ -5,6 +5,17 @@ from .point import Point
 
 
 class CircleArc(LineBase):
+    '''CircleArc of type LineBase.
+
+    Parameters
+    ----------
+    start : array-like[3]
+        Coordinates of start point needed to construct circle-arc.
+    center : array-like[3]
+        Coordinates of center point needed to construct circle-arc.
+    end : array-like[3]
+        Coordinates of end point needed to construct circle-arc.
+    '''
     def __init__(self, start, center, end):
         super(CircleArc, self).__init__()
 

@@ -4,6 +4,13 @@ from .surface_base import SurfaceBase
 
 
 class CompoundSurface(SurfaceBase):
+    '''CompoundSurface of type SurfaceBase.
+
+    Parameters
+    ----------
+    surfaces : array-like[N]
+        Surfaces to add to compound line.
+    '''
     def __init__(self, surfaces):
         super(CompoundSurface, self).__init__()
         self.num_edges = sum(s.num_edges for s in surfaces)
