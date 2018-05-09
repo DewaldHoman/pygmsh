@@ -6,16 +6,18 @@ Geometry Construction
 Modules
 *******
 
-Built-in Geometry
+Built-in Engine
 =================
+
+Geometry
+--------
 
 .. automodule:: pygmsh.built_in.geometry
     :members:
     :undoc-members:
     :show-inheritance:
 
-Classes
-=======
+
 
 Bspline
 -------
@@ -45,7 +47,14 @@ CompoundSurface
     :undoc-members:
     :show-inheritance:
 
-OpenCASCADE Geometry
+EllipseArc
+---------------
+.. automodule:: pygmsh.built_in.ellipse_arc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+OpenCASCADE Engine
 ====================
 
 .. automodule:: pygmsh.opencascade.geometry

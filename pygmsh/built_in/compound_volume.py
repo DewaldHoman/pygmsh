@@ -5,6 +5,13 @@
 class CompoundVolume(object):
     _ID = 0
 
+    '''
+    Parameters
+    ----------
+    volumes : array-like[N]
+        Volumes to add to compound volume.
+    '''
+
     def __init__(self, volumes):
         self.volumes = volumes
 

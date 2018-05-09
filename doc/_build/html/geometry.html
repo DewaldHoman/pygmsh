@@ -36,8 +36,10 @@
 <h1>Geometry Construction<a class="headerlink" href="#geometry-construction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="modules">
 <h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="built-in-engine">
+<h3>Built-in Engine<a class="headerlink" href="#built-in-engine" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="module-pygmsh.built_in.geometry">
-<span id="built-in-geometry"></span><h3>Built-in Geometry<a class="headerlink" href="#module-pygmsh.built_in.geometry" title="Permalink to this headline">¶</a></h3>
+<span id="geometry"></span><h4>Geometry<a class="headerlink" href="#module-pygmsh.built_in.geometry" title="Permalink to this headline">¶</a></h4>
 <p>This class provides a Python interface for the Gmsh scripting language. It aims
 at working around some of Gmsh’s inconveniences (e.g., having to manually
 assign an ID for every entity created) and providing access to Python’s
@@ -654,8 +656,6 @@ translation or rotation.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="module-pygmsh.built_in.bspline">
 <span id="bspline"></span><h4>Bspline<a class="headerlink" href="#module-pygmsh.built_in.bspline" title="Permalink to this headline">¶</a></h4>
 <dl class="class">
@@ -726,7 +726,31 @@ translation or rotation.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>surfaces</strong> (<em>array-like</em><em>[</em><em>N</em><em>]</em>) – Surfaces to add to compound line.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>surfaces</strong> (<em>array-like</em><em>[</em><em>N</em><em>]</em>) – Surfaces to add to compound surface.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pygmsh.built_in.ellipse_arc">
+<span id="ellipsearc"></span><h4>EllipseArc<a class="headerlink" href="#module-pygmsh.built_in.ellipse_arc" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="pygmsh.built_in.ellipse_arc.EllipseArc">
+<em class="property">class </em><code class="descclassname">pygmsh.built_in.ellipse_arc.</code><code class="descname">EllipseArc</code><span class="sig-paren">(</span><em>start</em>, <em>center</em>, <em>point_on_major_axis</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.built_in.ellipse_arc.EllipseArc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygmsh.built_in.line_base.LineBase</span></code></p>
+<p>EllipseArc of type LineBase.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>start</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Coordinates of start point needed to construct circle-arc.</li>
+<li><strong>center</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Coordinates of center point needed to construct circle-arc.</li>
+<li><strong>point_on_major_axis</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Point on the center axis of ellipse.</li>
+<li><strong>end</strong> (<em>array-like</em><em>[</em><em>3</em><em>]</em>) – Coordinates of end point needed to construct circle-arc.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -735,7 +759,7 @@ translation or rotation.</p>
 </div>
 </div>
 <div class="section" id="module-pygmsh.opencascade.geometry">
-<span id="opencascade-geometry"></span><h3>OpenCASCADE Geometry<a class="headerlink" href="#module-pygmsh.opencascade.geometry" title="Permalink to this headline">¶</a></h3>
+<span id="opencascade-engine"></span><h3>OpenCASCADE Engine<a class="headerlink" href="#module-pygmsh.opencascade.geometry" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="pygmsh.opencascade.geometry.Geometry">
 <em class="property">class </em><code class="descclassname">pygmsh.opencascade.geometry.</code><code class="descname">Geometry</code><span class="sig-paren">(</span><em>characteristic_length_min=None</em>, <em>characteristic_length_max=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pygmsh.opencascade.geometry.Geometry" title="Permalink to this definition">¶</a></dt>
@@ -951,15 +975,16 @@ by the angle <span class="math notranslate">\(\theta\)</span>, cf.
   <ul>
 <li><a class="reference internal" href="#">Geometry Construction</a><ul>
 <li><a class="reference internal" href="#modules">Modules</a><ul>
-<li><a class="reference internal" href="#module-pygmsh.built_in.geometry">Built-in Geometry</a></li>
-<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#built-in-engine">Built-in Engine</a><ul>
+<li><a class="reference internal" href="#module-pygmsh.built_in.geometry">Geometry</a></li>
 <li><a class="reference internal" href="#module-pygmsh.built_in.bspline">Bspline</a></li>
 <li><a class="reference internal" href="#module-pygmsh.built_in.circle_arc">CircleArc</a></li>
 <li><a class="reference internal" href="#module-pygmsh.built_in.compound_line">CompoundLine</a></li>
 <li><a class="reference internal" href="#module-pygmsh.built_in.compound_surface">CompoundSurface</a></li>
+<li><a class="reference internal" href="#module-pygmsh.built_in.ellipse_arc">EllipseArc</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-pygmsh.opencascade.geometry">OpenCASCADE Geometry</a></li>
+<li><a class="reference internal" href="#module-pygmsh.opencascade.geometry">OpenCASCADE Engine</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#functions">Functions</a><ul>

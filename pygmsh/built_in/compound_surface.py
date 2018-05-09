@@ -9,7 +9,7 @@ class CompoundSurface(SurfaceBase):
     Parameters
     ----------
     surfaces : array-like[N]
-        Surfaces to add to compound line.
+        Surfaces to add to compound surface.
     '''
     def __init__(self, surfaces):
         super(CompoundSurface, self).__init__()
